@@ -16,49 +16,72 @@
       --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      /* Dark Theme (Tactile Spatial Glassmorphism) */
-      --bg: #07080a;
-      --stripe: rgba(255, 255, 255, 0.028);
-      --glass-surface: rgba(20, 22, 28, 0.65);
-      --glass-surface-hover: rgba(26, 29, 38, 0.8);
-      --glass-border: rgba(255, 255, 255, 0.12);
-      --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px rgba(0, 0, 0, 0.5);
-      --glass-lens: rgba(255, 255, 255, 0.06);
+      /* Deep Glassmorphism Palette */
+      --bg: #06070a;
+      --stripe: rgba(255, 255, 255, 0.038);
+      
+      /* Thick Liquid Glass Layering */
+      --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(18, 21, 29, 0.55) 45%, rgba(255, 255, 255, 0.02) 100%);
+      --glass-bg-hover: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(22, 26, 36, 0.68) 50%, rgba(255, 255, 255, 0.04) 100%);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --glass-border-hover: rgba(255, 255, 255, 0.28);
+      --glass-shadow: 
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
+        inset 1px 0 1px 0 rgba(255, 255, 255, 0.12),
+        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.35),
+        0 24px 48px -12px rgba(0, 0, 0, 0.7);
 
-      --card-cocoa: rgba(43, 36, 32, 0.75);
-      --card-cocoa-border: rgba(255, 210, 180, 0.12);
+      /* Floating Prism Glass */
+      --lens-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.03) 60%, rgba(255, 255, 255, 0.08) 100%);
+      --lens-border: rgba(255, 255, 255, 0.28);
+      --lens-shadow: 
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.45),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+        0 20px 40px rgba(0, 0, 0, 0.6);
 
-      --text-main: #f4f5f8;
-      --text-muted: #8b909f;
-      --text-dim: #555a69;
+      --card-cocoa: linear-gradient(135deg, rgba(74, 58, 48, 0.5) 0%, rgba(36, 28, 23, 0.65) 100%);
+      --card-cocoa-border: rgba(255, 205, 175, 0.18);
+
+      --text-main: #f5f6fa;
+      --text-muted: #9297a7;
+      --text-dim: #5c6274;
 
       --accent-yellow: #f5c451;
-      --accent-yellow-text: #1a1608;
+      --accent-yellow-text: #171408;
       --accent-amber: #eab308;
       --accent-glow: rgba(245, 196, 81, 0.25);
 
-      --radius-sm: 12px;
-      --radius-md: 18px;
-      --radius-lg: 26px;
+      --radius-sm: 14px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
       --radius-pill: 9999px;
-      --transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     [data-theme="light"] {
-      --bg: #eceae5;
-      --stripe: rgba(0, 0, 0, 0.04);
-      --glass-surface: rgba(255, 255, 255, 0.7);
-      --glass-surface-hover: rgba(255, 255, 255, 0.9);
-      --glass-border: rgba(0, 0, 0, 0.08);
-      --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 16px 36px rgba(0, 0, 0, 0.08);
-      --glass-lens: rgba(255, 255, 255, 0.4);
+      --bg: #ece9e2;
+      --stripe: rgba(0, 0, 0, 0.045);
 
-      --card-cocoa: rgba(230, 218, 208, 0.85);
-      --card-cocoa-border: rgba(120, 90, 70, 0.15);
+      --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 246, 242, 0.6) 100%);
+      --glass-bg-hover: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.75) 100%);
+      --glass-border: rgba(255, 255, 255, 0.8);
+      --glass-border-hover: rgba(255, 255, 255, 0.95);
+      --glass-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+        0 18px 40px -10px rgba(0, 0, 0, 0.08);
 
-      --text-main: #14161d;
-      --text-muted: #5e6473;
-      --text-dim: #9aa0af;
+      --lens-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
+      --lens-border: rgba(255, 255, 255, 0.9);
+      --lens-shadow: 
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.95),
+        0 20px 40px rgba(0, 0, 0, 0.08);
+
+      --card-cocoa: linear-gradient(135deg, rgba(235, 222, 212, 0.9) 0%, rgba(215, 198, 185, 0.75) 100%);
+      --card-cocoa-border: rgba(150, 115, 95, 0.2);
+
+      --text-main: #141721;
+      --text-muted: #575e70;
+      --text-dim: #9aa1b3;
 
       --accent-yellow: #e6b334;
       --accent-yellow-text: #14161d;
@@ -81,28 +104,65 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 48px 20px;
       position: relative;
       overflow-x: hidden;
       transition: background-color var(--transition), color var(--transition);
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Vertical Pinstripe Background Grid */
+    /* Vertical Architectural Pinstripe Grid */
     .pinstripe-bg {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
       background-image: linear-gradient(90deg, var(--stripe) 1px, transparent 1px);
-      background-size: 72px 100%;
-      mask-image: radial-gradient(ellipse at 50% 50%, #000 60%, transparent 95%);
-      -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 60%, transparent 95%);
+      background-size: 68px 100%;
+      mask-image: radial-gradient(ellipse at 50% 50%, #000 65%, transparent 95%);
+      -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 65%, transparent 95%);
+    }
+
+    /* Ambient Lighting Behind Glass */
+    .ambient-glow-1 {
+      position: fixed;
+      top: 15%;
+      left: 18%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(245, 196, 81, 0.11) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient-glow-2 {
+      position: fixed;
+      bottom: 20%;
+      right: 15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient-glow-3 {
+      position: fixed;
+      top: 40%;
+      right: 25%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.06) 0%, transparent 70%);
+      filter: blur(85px);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .canvas-container {
       width: 100%;
-      max-width: 940px;
+      max-width: 960px;
       position: relative;
       z-index: 1;
     }
@@ -111,50 +171,52 @@
     .style-canvas {
       display: grid;
       grid-template-columns: 1.15fr 1fr;
-      gap: 20px;
+      gap: 22px;
       align-items: start;
+      position: relative;
     }
 
     .canvas-col {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 22px;
     }
 
-    /* Frosted Glass Cards */
+    /* Frosted Glass Base */
     .glass-card {
-      background: var(--glass-surface);
-      backdrop-filter: blur(28px) saturate(180%);
-      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      background: var(--glass-bg);
+      backdrop-filter: blur(36px) saturate(210%);
+      -webkit-backdrop-filter: blur(36px) saturate(210%);
       border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-highlight);
+      box-shadow: var(--glass-shadow);
       border-radius: var(--radius-lg);
-      padding: 28px;
+      padding: 30px;
       position: relative;
       transition: all var(--transition);
     }
 
     .glass-card:hover {
-      border-color: rgba(255, 255, 255, 0.22);
-      background: var(--glass-surface-hover);
+      border-color: var(--glass-border-hover);
+      background: var(--glass-bg-hover);
+      transform: translateY(-2px);
     }
 
     /* Planner Widget (Top Left) */
     .planner-card {
-      padding: 30px;
+      padding: 32px;
     }
 
     .planner-header {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     .planner-title {
-      font-size: 1.75rem;
+      font-size: 1.875rem;
       font-weight: 700;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
     }
 
     .planner-sup {
@@ -167,22 +229,24 @@
     .planner-items {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 11px;
     }
 
     .planner-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 13px 16px;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid var(--glass-border);
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-md);
-      transition: background var(--transition);
+      transition: all var(--transition);
+      backdrop-filter: blur(16px);
     }
 
     .planner-row:hover {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.16);
     }
 
     .planner-row-title {
@@ -199,8 +263,8 @@
     }
 
     .icon-checked {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: var(--accent-yellow);
       color: var(--accent-yellow-text);
@@ -208,6 +272,7 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 0 12px var(--accent-glow);
     }
 
     .icon-circle {
@@ -218,24 +283,61 @@
       flex-shrink: 0;
     }
 
-    /* Bottom Left Row: Icon pill + Digital Clock */
+    /* Floating Center Glass Lens (The Iconic Glass Slab from Reference) */
+    .floating-glass-lens {
+      position: absolute;
+      top: 140px;
+      left: 45%;
+      transform: translateX(-50%);
+      width: 170px;
+      height: 220px;
+      background: var(--lens-bg);
+      backdrop-filter: blur(48px) saturate(240%);
+      -webkit-backdrop-filter: blur(48px) saturate(240%);
+      border: 1.5px solid var(--lens-border);
+      box-shadow: var(--lens-shadow);
+      border-radius: var(--radius-lg);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 16px;
+      pointer-events: none;
+      transition: transform var(--transition);
+    }
+
+    .floating-glass-lens .lens-tag {
+      background: var(--accent-yellow);
+      color: var(--accent-yellow-text);
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-sans);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 14px var(--accent-glow);
+      letter-spacing: -0.01em;
+    }
+
+    /* Bottom Left: Icon pill + Digital Clock */
     .bottom-left-row {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       align-items: stretch;
     }
 
     .mini-lens-card {
-      width: 86px;
-      background: var(--glass-surface);
+      width: 90px;
+      background: var(--glass-bg);
       border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-highlight);
+      box-shadow: var(--glass-shadow);
       border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      backdrop-filter: blur(28px);
+      backdrop-filter: blur(36px);
+      -webkit-backdrop-filter: blur(36px);
     }
 
     .abstract-shape {
@@ -246,12 +348,12 @@
       -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='14' cy='30' r='8'/%3E%3Ccircle cx='30' cy='14' r='8'/%3E%3Cpath d='M14 22 L30 22' stroke='black' stroke-width='10' stroke-linecap='round' transform='rotate(-45 22 22)'/%3E%3C/svg%3E") no-repeat center;
       mask-size: contain;
       -webkit-mask-size: contain;
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
     .clock-widget {
       flex: 1;
-      padding: 20px 24px;
+      padding: 22px 26px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -262,18 +364,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
     }
 
     .dial-circle {
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       border: 1.5px solid var(--glass-border);
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
+      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
     }
 
     .dial-center-dot {
@@ -288,11 +390,12 @@
       font-family: var(--font-mono);
       font-size: 0.6875rem;
       color: var(--text-muted);
+      letter-spacing: 0.05em;
     }
 
     .clock-time-display {
       font-family: var(--font-mono);
-      font-size: 2.25rem;
+      font-size: 2.375rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       color: var(--text-main);
@@ -306,7 +409,7 @@
     }
 
     @keyframes blink {
-      50% { opacity: 0.25; }
+      50% { opacity: 0.2; }
     }
 
     .clock-period {
@@ -321,7 +424,7 @@
     .top-right-row {
       display: grid;
       grid-template-columns: 1fr 1.15fr;
-      gap: 16px;
+      gap: 18px;
     }
 
     /* Calendar Card (Cocoa Warm Tone) */
@@ -329,9 +432,10 @@
       background: var(--card-cocoa);
       border: 1px solid var(--card-cocoa-border);
       border-radius: var(--radius-lg);
-      padding: 22px;
-      backdrop-filter: blur(28px);
-      box-shadow: var(--glass-highlight);
+      padding: 24px;
+      backdrop-filter: blur(36px);
+      -webkit-backdrop-filter: blur(36px);
+      box-shadow: var(--glass-shadow);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -341,11 +445,11 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .calendar-day {
-      font-size: 2.25rem;
+      font-size: 2.375rem;
       font-weight: 700;
       line-height: 1;
       letter-spacing: -0.03em;
@@ -364,7 +468,7 @@
     .activity-dot-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 7px;
+      gap: 8px;
     }
 
     .act-dot {
@@ -377,7 +481,7 @@
 
     .act-dot.active-yellow {
       background: var(--accent-yellow);
-      box-shadow: 0 0 8px var(--accent-glow);
+      box-shadow: 0 0 10px var(--accent-glow);
     }
 
     .act-dot.active-dim {
@@ -390,8 +494,8 @@
       overflow: hidden;
       position: relative;
       border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-highlight);
-      min-height: 140px;
+      box-shadow: var(--glass-shadow);
+      min-height: 145px;
     }
 
     .photo-tile img {
@@ -399,17 +503,17 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: brightness(0.9) contrast(1.1);
-      transition: transform 0.4s ease;
+      filter: brightness(0.92) contrast(1.1);
+      transition: transform 0.5s ease;
     }
 
     .photo-tile:hover img {
-      transform: scale(1.04);
+      transform: scale(1.05);
     }
 
     /* Flagship Studio Card (Newhalo) */
     .flagship-card {
-      padding: 30px;
+      padding: 32px;
       position: relative;
       overflow: hidden;
     }
@@ -418,14 +522,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .pill-badge-yellow {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 14px;
+      padding: 6px 16px;
       background: var(--accent-yellow);
       color: var(--accent-yellow-text);
       font-family: var(--font-sans);
@@ -445,14 +549,15 @@
       font-size: 1.625rem;
       font-weight: 800;
       letter-spacing: -0.025em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      line-height: 1.25;
     }
 
     .flagship-description {
       font-size: 0.9375rem;
       color: var(--text-muted);
       line-height: 1.6;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     .flagship-action-row {
@@ -461,8 +566,8 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-      padding-top: 18px;
-      border-top: 1px solid var(--glass-border);
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
     }
 
     .stack-tags {
@@ -474,10 +579,10 @@
     .stack-tag {
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      padding: 3px 9px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--glass-border);
-      border-radius: 6px;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
       color: var(--text-muted);
     }
 
@@ -485,7 +590,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 9px 18px;
+      padding: 10px 20px;
       background: var(--text-main);
       color: var(--bg);
       font-size: 0.875rem;
@@ -493,26 +598,28 @@
       border-radius: var(--radius-pill);
       text-decoration: none;
       transition: all var(--transition);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
 
     .launch-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
       filter: brightness(1.1);
     }
 
     /* Bottom Control Bar & Footer Label */
     .bottom-bar {
-      margin-top: 24px;
+      margin-top: 26px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 20px;
-      background: var(--glass-surface);
+      padding: 14px 24px;
+      background: var(--glass-bg);
       border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-highlight);
+      box-shadow: var(--glass-shadow);
       border-radius: var(--radius-pill);
-      backdrop-filter: blur(28px);
+      backdrop-filter: blur(36px);
+      -webkit-backdrop-filter: blur(36px);
     }
 
     .styleboard-caption {
@@ -526,7 +633,7 @@
     .bottom-links {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
     }
 
     .channel-link {
@@ -548,8 +655,8 @@
     }
 
     .theme-switch-btn {
-      padding: 4px 10px;
-      background: rgba(255, 255, 255, 0.05);
+      padding: 5px 12px;
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--glass-border);
       border-radius: var(--radius-pill);
       font-family: var(--font-mono);
@@ -560,21 +667,23 @@
     }
 
     .theme-switch-btn:hover {
-      border-color: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.1);
     }
 
     /* Toast Notification */
     .toast-popup {
       position: fixed;
-      bottom: 24px;
+      bottom: 28px;
       left: 50%;
       transform: translateX(-50%) translateY(20px);
-      background: var(--glass-surface);
-      backdrop-filter: blur(24px);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-highlight);
+      background: var(--glass-bg);
+      backdrop-filter: blur(36px);
+      -webkit-backdrop-filter: blur(36px);
+      border: 1px solid var(--glass-border-hover);
+      box-shadow: var(--glass-shadow);
       color: var(--text-main);
-      padding: 10px 20px;
+      padding: 11px 22px;
       border-radius: var(--radius-pill);
       font-family: var(--font-mono);
       font-size: 0.8125rem;
@@ -589,7 +698,13 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* Responsive Layout */
+    /* Responsive Breakpoints */
+    @media (max-width: 900px) {
+      .floating-glass-lens {
+        display: none;
+      }
+    }
+
     @media (max-width: 768px) {
       .style-canvas {
         grid-template-columns: 1fr;
@@ -606,23 +721,33 @@
       }
       .bottom-bar {
         flex-direction: column;
-        gap: 12px;
+        gap: 14px;
         border-radius: var(--radius-lg);
         text-align: center;
       }
       body {
-        padding: 20px 14px;
+        padding: 24px 14px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Pinstripe Background Grid -->
+  <!-- Vertical Pinstripe Grid Overlay -->
   <div class="pinstripe-bg" aria-hidden="true"></div>
+
+  <!-- Ambient Light Orbs (Gives Frosted Glass Real Liquid Refraction) -->
+  <div class="ambient-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow-3" aria-hidden="true"></div>
 
   <div class="canvas-container">
     <main class="style-canvas">
+
+      <!-- Signature Floating Refractive Glass Lens (from reference) -->
+      <div class="floating-glass-lens" aria-hidden="true">
+        <span class="lens-tag">Newhalo Studio</span>
+      </div>
 
       <!-- LEFT COLUMN -->
       <div class="canvas-col">
@@ -640,7 +765,7 @@
                 <div class="planner-row-title">Vitalii</div>
                 <div class="planner-row-sub">Web &amp; Python Automation</div>
               </div>
-              <div class="icon-checked" title="Available">
+              <div class="icon-checked" title="Available for work">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
