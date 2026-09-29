@@ -3,674 +3,551 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vitalii — Full-Stack Web Developer | Portfolio</title>
-  
-  <!-- SEO & Social Meta -->
-  <meta name="description" content="Portfolio of Vitalii, a Full-Stack Web Developer specializing in high-performance web applications using React, Next.js, PHP/Laravel, and Python.">
-  <meta name="keywords" content="Vitalii, Full-Stack Developer, Web Developer, React, Laravel, PHP, Python, JavaScript, Portfolio">
-  <meta name="author" content="Vitalii">
+  <title>Vitalii — Web & Automation Developer</title>
+  <meta name="description" content="Personal portfolio of Vitalii. Web development and custom Python automation. Featured work: Newhalo.">
   <link rel="canonical" href="https://vitaliinewhalo.github.io/">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vitaliinewhalo.github.io/">
-  <meta property="og:title" content="Vitalii — Full-Stack Web Developer">
-  <meta property="og:description" content="Engineering high-performance web applications, scalable backend systems & interactive digital experiences.">
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css">
-  
-  <!-- Favicon SVG -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300f0ff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='bold' font-size='16' fill='%23050811'>&lt;V/&gt;</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --bg: #090a0f;
+      --surface: #11131a;
+      --surface-hover: #161922;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.18);
+      --text: #f1f5f9;
+      --text-muted: #848d9f;
+      --accent: #3b82f6;
+      --accent-subtle: rgba(59, 130, 246, 0.1);
+      --status: #10b981;
+      --radius: 14px;
+      --transition: 0.2s ease;
+    }
+
+    [data-theme="light"] {
+      --bg: #f6f7fa;
+      --surface: #ffffff;
+      --surface-hover: #f1f3f8;
+      --border: rgba(15, 23, 42, 0.09);
+      --border-hover: rgba(15, 23, 42, 0.22);
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --accent: #2563eb;
+      --accent-subtle: rgba(37, 99, 235, 0.08);
+      --status: #059669;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 20px;
+      line-height: 1.5;
+      transition: background-color var(--transition), color var(--transition);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 880px;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .bento-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color var(--transition), background-color var(--transition);
+      position: relative;
+    }
+
+    .bento-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .card-bio {
+      grid-column: span 2;
+    }
+
+    .card-meta {
+      grid-column: span 1;
+    }
+
+    .card-flagship {
+      grid-column: span 3;
+    }
+
+    .card-stack {
+      grid-column: span 2;
+    }
+
+    .card-contact {
+      grid-column: span 1;
+    }
+
+    .profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--status);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .bio-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    .theme-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .theme-btn {
+      background: var(--surface-hover);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition);
+    }
+
+    .theme-btn:hover {
+      border-color: var(--border-hover);
+    }
+
+    .meta-status-box {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .meta-title {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .meta-desc {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .flagship-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .flagship-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--accent-subtle);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .flagship-title {
+      font-size: 1.375rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .flagship-desc {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 650px;
+      margin-bottom: 20px;
+    }
+
+    .flagship-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag-item {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--surface-hover);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: var(--surface-hover);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .external-link:hover {
+      border-color: var(--border-hover);
+      color: var(--accent);
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .stack-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .stack-group-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .stack-group-desc {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .contacts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: var(--surface-hover);
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-family: var(--font-mono);
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+
+    .contact-item:hover {
+      border-color: var(--border-hover);
+      color: var(--accent);
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border-hover);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all var(--transition);
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .toast-msg.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-bio, .card-meta, .card-flagship, .card-stack, .card-contact {
+        grid-column: span 1;
+      }
+      .stack-columns {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+      body {
+        padding: 24px 14px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Tech Grid Overlay & Subtle Radial Spot -->
-  <div class="bg-grid-overlay" aria-hidden="true"></div>
-  <div class="bg-glow-spot" aria-hidden="true"></div>
+  <div class="wrapper">
+    <main class="bento-grid">
 
-  <!-- Header & Navigation -->
-  <header class="site-header">
-    <div class="container">
-      <a href="#hero" class="brand-logo" aria-label="Vitalii Home">
-        <span class="brand-badge">&lt;V/&gt;</span>
-        <span>vitalii<span class="brand-sub">.dev</span></span>
-      </a>
-
-      <nav aria-label="Main Navigation">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#stack" class="nav-link">Stack</a></li>
-          <li><a href="#terminal" class="nav-link">Console</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-actions">
-        <!-- Theme Toggle -->
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme mode" title="Toggle Theme">
-          <!-- Sun Icon (shown in dark mode to switch to light) -->
-          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <!-- Moon Icon (shown in light mode to switch to dark) -->
-          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-
-        <!-- GitHub Profile -->
-        <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="GitHub Profile">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-          </svg>
-          <span>GitHub</span>
-        </a>
-
-        <!-- Let's Talk CTA -->
-        <a href="#contact" class="btn btn-primary btn-sm">Let's Talk</a>
-
-        <!-- Mobile Menu Toggle -->
-        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle navigation menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <main>
-    <section class="hero-section" id="hero">
-      <div class="container">
-        <!-- Live Status Badge -->
-        <div class="status-pill">
-          <span class="status-dot"></span>
-          <span>Available for New Projects &amp; Contracts</span>
+      <!-- Card 1: Identity & Bio -->
+      <section class="bento-card card-bio">
+        <div>
+          <div class="profile-badge">
+            <span class="status-dot"></span>
+            <span>Vitalii / Portfolio</span>
+          </div>
+          <h1>Web Development &amp; Custom Python Automation</h1>
         </div>
-
-        <h1 class="hero-title">
-          Engineering high-performance web products &amp; 
-          <span class="gradient-text">Full-Stack Solutions</span>
-        </h1>
-
-        <p class="hero-description">
-          Hi, I'm <strong>Vitalii</strong>. I specialize in architecting modern full-cycle web applications — fusing reactive, responsive <strong>React</strong> frontends with robust <strong>PHP / Laravel</strong> and <strong>Python</strong> backend infrastructure.
+        <p class="bio-text">
+          Independent developer building bespoke web experiences, tailored interfaces, and backend automation infrastructure. Focused on clean architecture, performance, and reliable delivery.
         </p>
+      </section>
 
-        <!-- Hero CTAs -->
-        <div class="hero-cta-group">
-          <a href="#projects" class="btn btn-primary">
-            <span>Explore Featured Projects</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-          </a>
-
-          <a href="#contact" class="btn btn-secondary">
-            <span>Contact Me</span>
-          </a>
-
-          <button class="btn btn-ghost" data-copy="vitaliinewhalo@gmail.com" title="Click to copy email">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            <span>Copy Email</span>
+      <!-- Card 2: Controls & Availability -->
+      <section class="bento-card card-meta">
+        <div class="theme-row">
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Theme</span>
+          <button id="themeToggleBtn" class="theme-btn" aria-label="Toggle theme">
+            <span id="themeLabel">Light</span>
           </button>
         </div>
-
-        <!-- Tech Badges Strip -->
-        <div class="tech-pills-row" aria-label="Key Technologies">
-          <span class="tech-pill">React 18+</span>
-          <span class="tech-pill">TypeScript</span>
-          <span class="tech-pill">JavaScript ESNext</span>
-          <span class="tech-pill">PHP / Laravel 11</span>
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">Tailwind CSS</span>
-          <span class="tech-pill">MySQL &amp; PostgreSQL</span>
-          <span class="tech-pill">REST &amp; APIs</span>
-          <span class="tech-pill">Git / GitHub Actions</span>
+        <div class="meta-status-box">
+          <div class="meta-title">Available for projects</div>
+          <div class="meta-desc">Open for web engineering &amp; automation contracts.</div>
         </div>
+      </section>
 
-        <!-- Metrics Strip -->
-        <div class="metrics-strip">
-          <div class="metric-item">
-            <span class="metric-value">3+</span>
-            <span class="metric-label">Years of Development</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">20+</span>
-            <span class="metric-label">Projects &amp; Solutions</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">100%</span>
-            <span class="metric-label">Responsive &amp; Mobile-First</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">Full-Stack</span>
-            <span class="metric-label">Frontend to Cloud APIs</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Selected Projects Section -->
-    <section class="projects-section" id="projects">
-      <div class="container">
-        <span class="section-tag">// SELECTED WORK</span>
-        <h2 class="section-title">Featured Engineering Projects</h2>
-        <p class="section-subtitle">
-          Real-world applications built with clean code principles, intuitive user experience, and scalable backend services.
-        </p>
-
-        <!-- Filter Controls -->
-        <div class="filter-tabs" role="tablist" aria-label="Project filters">
-          <button class="filter-btn active" data-filter="all">All Projects (6)</button>
-          <button class="filter-btn" data-filter="fullstack">Full-Stack (3)</button>
-          <button class="filter-btn" data-filter="frontend">Frontend &amp; UI (2)</button>
-          <button class="filter-btn" data-filter="backend">Backend &amp; Bots (2)</button>
-        </div>
-
-        <!-- Projects Grid -->
-        <div class="projects-grid">
-
-          <!-- 1. Nadya Hours (Featured) -->
-          <article class="project-card featured" data-category="frontend fullstack">
-            <div class="project-info">
-              <div class="project-card-header">
-                <span class="project-type-tag">Progressive Web App</span>
-                <span class="font-mono" style="font-size: 0.8125rem; color: var(--accent-emerald);">● Production Ready</span>
-              </div>
-              <h3 class="project-title">Nadya Hours — Shift &amp; Earnings Tracker</h3>
-              <p class="project-desc">
-                A streamlined progressive web application engineered for employees and freelancers to track work shifts, calculate gross earnings in real time, and analyze monthly time allocations with offline storage.
-              </p>
-              <ul class="project-highlights">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Dynamic live session timer with pause &amp; resume controls</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Multi-rate wage calculation &amp; customizable overtime multipliers</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Offline-capable PWA architecture with local persistence</span>
-                </li>
-              </ul>
-              <div class="project-tech-list">
-                <span class="project-tech-tag">React</span>
-                <span class="project-tech-tag">Tailwind CSS</span>
-                <span class="project-tech-tag">PWA</span>
-                <span class="project-tech-tag">LocalStorage</span>
-                <span class="project-tech-tag">Vite</span>
-              </div>
-              <div class="project-footer-actions">
-                <a href="https://github.com/vitaliinewhalo/nadya-hours" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                  <span>Repository</span>
-                </a>
-              </div>
-            </div>
-            <div class="project-preview-mockup" style="background: var(--bg-tertiary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 24px; text-align: center;">
-              <div style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 8px;">// LIVE TRACKER METRIC</div>
-              <div style="font-size: 2.25rem; font-family: var(--font-mono); font-weight: 800; color: var(--accent-cyan); margin-bottom: 6px;">08:45:12</div>
-              <div style="font-size: 0.9375rem; color: var(--accent-emerald); font-weight: 600;">$175.00 Earned Today</div>
-            </div>
-          </article>
-
-          <!-- 2. Hotel Booking Platform -->
-          <article class="project-card" data-category="fullstack">
+      <!-- Card 3: Featured Flagship Project (Newhalo) -->
+      <section class="bento-card card-flagship">
+        <div>
+          <div class="flagship-header">
             <div>
-              <div class="project-card-header">
-                <span class="project-type-tag">Full-Stack Platform</span>
-                <span class="font-mono" style="font-size: 0.8125rem; color: var(--text-muted);">Laravel 11</span>
-              </div>
-              <h3 class="project-title">Hotel Booking &amp; Reservation Engine</h3>
-              <p class="project-desc">
-                Comprehensive hospitality booking system with real-time room inventory management, multi-currency pricing calculations, and an administrative control panel built with Filament.
-              </p>
-              <ul class="project-highlights">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Real-time currency converter service</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Filament Admin for rooms, reviews, and bookings</span>
-                </li>
-              </ul>
-              <div class="project-tech-list">
-                <span class="project-tech-tag">Laravel 11</span>
-                <span class="project-tech-tag">PHP 8.2</span>
-                <span class="project-tech-tag">Filament</span>
-                <span class="project-tech-tag">MySQL</span>
-              </div>
+              <div class="flagship-title">Newhalo</div>
+              <div style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-muted);">new-halo.com</div>
             </div>
-            <div class="project-footer-actions">
-              <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                <span>Code Showcase</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 3. Crypto Card Store -->
-          <article class="project-card" data-category="fullstack">
-            <div>
-              <div class="project-card-header">
-                <span class="project-type-tag">E-Commerce &amp; Fintech</span>
-                <span class="font-mono" style="font-size: 0.8125rem; color: var(--text-muted);">Web Store</span>
-              </div>
-              <h3 class="project-title">Digital Crypto Card &amp; Voucher Marketplace</h3>
-              <p class="project-desc">
-                High-security e-commerce storefront specialized in digital voucher distribution, instant pin dispatching, transactional record-keeping, and catalog management.
-              </p>
-              <ul class="project-highlights">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Automated checkout and instant token delivery</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Product image pipelines &amp; category taxonomies</span>
-                </li>
-              </ul>
-              <div class="project-tech-list">
-                <span class="project-tech-tag">Laravel</span>
-                <span class="project-tech-tag">PHP</span>
-                <span class="project-tech-tag">Tailwind</span>
-                <span class="project-tech-tag">Payment APIs</span>
-              </div>
-            </div>
-            <div class="project-footer-actions">
-              <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                <span>Code Showcase</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 4. AeroFocus -->
-          <article class="project-card" data-category="frontend">
-            <div>
-              <div class="project-card-header">
-                <span class="project-type-tag">UI / Productivity</span>
-                <span class="font-mono" style="font-size: 0.8125rem; color: var(--text-muted);">React App</span>
-              </div>
-              <h3 class="project-title">AeroFocus — Desktop Productivity Overlay</h3>
-              <p class="project-desc">
-                Futuristic desktop workspace overlay designed for deep focus. Features ambient timers, floating micro-widgets, and interactive task state persistence.
-              </p>
-              <ul class="project-highlights">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>HUD-style glassmorphism interface</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Keyboard-driven productivity shortcuts</span>
-                </li>
-              </ul>
-              <div class="project-tech-list">
-                <span class="project-tech-tag">React</span>
-                <span class="project-tech-tag">JavaScript</span>
-                <span class="project-tech-tag">Custom CSS</span>
-                <span class="project-tech-tag">Vite</span>
-              </div>
-            </div>
-            <div class="project-footer-actions">
-              <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                <span>Code Showcase</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 5. Weather Alert Bot -->
-          <article class="project-card" data-category="backend">
-            <div>
-              <div class="project-card-header">
-                <span class="project-type-tag">Backend &amp; Bot</span>
-                <span class="font-mono" style="font-size: 0.8125rem; color: var(--text-muted);">Python Bot</span>
-              </div>
-              <h3 class="project-title">Real-Time Telegram Weather Bot</h3>
-              <p class="project-desc">
-                Asynchronous bot delivering accurate weather forecasts, severe atmospheric warnings, and hourly summaries using external RESTful weather data providers.
-              </p>
-              <ul class="project-highlights">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Non-blocking Asyncio event architecture</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Smart caching to reduce external API rate limits</span>
-                </li>
-              </ul>
-              <div class="project-tech-list">
-                <span class="project-tech-tag">Python</span>
-                <span class="project-tech-tag">Telegram Bot API</span>
-                <span class="project-tech-tag">Asyncio</span>
-                <span class="project-tech-tag">REST API</span>
-              </div>
-            </div>
-            <div class="project-footer-actions">
-              <a href="https://github.com/vitaliinewhalo/weather-bot" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                <span>Repository</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 6. Casa Apartment Rental -->
-          <article class="project-card" data-category="fullstack backend">
-            <div>
-              <div class="project-card-header">
-                <span class="project-type-tag">Full-Stack Service</span>
-                <span class="font-mono" style="font-size: 0.8125rem; color: var(--text-muted);">Rental Platform</span>
-              </div>
-              <h3 class="project-title">Casa Apartment Rental Platform</h3>
-              <p class="project-desc">
-                Modern accommodation portal with categorized property catalogs, interactive amenity filters, booking request workflows, and host inquiry routing.
-              </p>
-              <ul class="project-highlights">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Tailored booking submission and verification pipeline</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>High-speed responsive layout tested on all devices</span>
-                </li>
-              </ul>
-              <div class="project-tech-list">
-                <span class="project-tech-tag">PHP</span>
-                <span class="project-tech-tag">JavaScript</span>
-                <span class="project-tech-tag">CSS3</span>
-                <span class="project-tech-tag">MySQL</span>
-              </div>
-            </div>
-            <div class="project-footer-actions">
-              <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                <span>Code Showcase</span>
-              </a>
-            </div>
-          </article>
-
+            <span class="flagship-tag">Flagship Project</span>
+          </div>
+          <p class="flagship-desc">
+            High-end web design and custom Python automation studio. Crafted for bespoke, high-performance web products, rapid static delivery, and specialized automated workflows.
+          </p>
         </div>
-      </div>
-    </section>
 
-    <!-- Interactive Developer Console -->
-    <section class="terminal-section" id="terminal">
-      <div class="container">
-        <span class="section-tag">// INTERACTIVE SHELL</span>
-        <h2 class="section-title">Developer Console &amp; Architecture</h2>
-        <p class="section-subtitle">
-          Click tabs to inspect code standards, technology structure, and the software deployment workflow.
-        </p>
-
-        <div class="terminal-window">
-          <div class="terminal-bar">
-            <div class="terminal-controls">
-              <span class="terminal-dot dot-red"></span>
-              <span class="terminal-dot dot-yellow"></span>
-              <span class="terminal-dot dot-green"></span>
-            </div>
-            <div class="terminal-tabs">
-              <button class="terminal-tab active" data-tab="profile.ts">profile.ts</button>
-              <button class="terminal-tab" data-tab="stack.json">stack.json</button>
-              <button class="terminal-tab" data-tab="workflow.sh">workflow.sh</button>
-            </div>
-            <div class="font-mono" style="font-size: 0.75rem; color: #475569;">bash — 80x24</div>
+        <div class="flagship-footer">
+          <div class="tags-list">
+            <span class="tag-item">Web Architecture</span>
+            <span class="tag-item">Python Automation</span>
+            <span class="tag-item">Performance</span>
+            <span class="tag-item">Responsive Design</span>
           </div>
-          <pre class="terminal-body"><code id="terminalCode"><span class="code-comment">// Developer Profile Matrix</span>
-<span class="code-keyword">interface</span> <span class="code-fn">Developer</span> {
-  name: <span class="code-string">'Vitalii'</span>;
-  role: <span class="code-string">'Full-Stack Web Developer'</span>;
-  specialization: [<span class="code-string">'React Frontends'</span>, <span class="code-string">'Laravel APIs'</span>, <span class="code-string">'Python Bots'</span>];
-  location: <span class="code-string">'Ukraine'</span>;
-  status: <span class="code-string">'Ready for High-Impact Projects'</span>;
-}
 
-<span class="code-keyword">export const</span> <span class="code-fn">vitalii</span>: <span class="code-fn">Developer</span> = {
-  name: <span class="code-string">'Vitalii'</span>,
-  role: <span class="code-string">'Full-Stack Web Developer'</span>,
-  specialization: [<span class="code-string">'React / Next.js'</span>, <span class="code-string">'PHP / Laravel'</span>, <span class="code-string">'Python'</span>],
-  location: <span class="code-string">'Ukraine'</span>,
-  status: <span class="code-string">'Open to Full-Time &amp; Freelance Opportunities'</span>
-};</code></pre>
+          <a href="https://new-halo.com/" target="_blank" rel="noopener noreferrer" class="external-link">
+            <span>Visit new-halo.com</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17L17 7"></path>
+              <path d="M7 7h10v10"></path>
+            </svg>
+          </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Tech Stack Section -->
-    <section class="stack-section" id="stack">
-      <div class="container">
-        <span class="section-tag">// TECH SPECS</span>
-        <h2 class="section-title">Core Technology Stack</h2>
-        <p class="section-subtitle">
-          Battle-tested libraries, frameworks, and storage systems utilized for production systems.
-        </p>
-
-        <div class="stack-grid">
-          <!-- 1. Frontend -->
-          <div class="stack-card">
-            <div class="stack-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-            </div>
-            <h3 class="stack-card-title">Frontend Engineering</h3>
-            <div class="skill-list">
-              <div class="skill-item"><span>React 18+ &amp; Next.js</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-item"><span>TypeScript &amp; JavaScript (ESNext)</span><span class="skill-level">Proficient</span></div>
-              <div class="skill-item"><span>Tailwind CSS &amp; Modern Vanilla CSS</span><span class="skill-level">Expert</span></div>
-              <div class="skill-item"><span>PWA &amp; Offline Storage</span><span class="skill-level">Proficient</span></div>
-              <div class="skill-item"><span>Semantic HTML5 &amp; Accessibility (a11y)</span><span class="skill-level">Expert</span></div>
-            </div>
-          </div>
-
-          <!-- 2. Backend & APIs -->
-          <div class="stack-card">
-            <div class="stack-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-            </div>
-            <h3 class="stack-card-title">Backend &amp; Services</h3>
-            <div class="skill-list">
-              <div class="skill-item"><span>PHP 8.2+ &amp; Laravel 11</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-item"><span>Filament Admin &amp; Livewire</span><span class="skill-level">Proficient</span></div>
-              <div class="skill-item"><span>Python &amp; Asyncio / Telegram Bots</span><span class="skill-level">Proficient</span></div>
-              <div class="skill-item"><span>RESTful API Design &amp; Webhooks</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-item"><span>Node.js / Express basics</span><span class="skill-level">Working</span></div>
-            </div>
-          </div>
-
-          <!-- 3. Databases & DevOps -->
-          <div class="stack-card">
-            <div class="stack-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-            </div>
-            <h3 class="stack-card-title">Storage, DevOps &amp; Tools</h3>
-            <div class="skill-list">
-              <div class="skill-item"><span>MySQL &amp; PostgreSQL</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-item"><span>Redis Caching</span><span class="skill-level">Proficient</span></div>
-              <div class="skill-item"><span>Git &amp; GitHub Workflows</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-item"><span>Vercel &amp; GitHub Pages</span><span class="skill-level">Expert</span></div>
-              <div class="skill-item"><span>Vite, NPM &amp; Composer</span><span class="skill-level">Advanced</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section" id="about">
-      <div class="container">
-        <div class="about-layout">
-          <div class="about-text-content">
-            <span class="section-tag">// BIOGRAPHY</span>
-            <h2 class="section-title">Crafting reliable software with passion</h2>
-            <p>
-              I am a Full-Stack Web Developer dedicated to writing clean, maintainable code and constructing digital products that genuinely solve real-world problems.
-            </p>
-            <p>
-              My approach connects user-focused interface design with solid backend foundations. Whether building a rapid client-side tracker with React or orchestrating an enterprise booking platform powered by Laravel and relational databases, I focus on performance, security, and developer ergonomics.
-            </p>
-            <p>
-              Based in Ukraine, working with clients and teams worldwide. Always eager to explore emerging tools and contribute to high-impact software products.
-            </p>
-
-            <div style="margin-top: 28px;">
-              <a href="#contact" class="btn btn-primary">Start a Conversation</a>
-            </div>
-          </div>
-
-          <div class="principles-grid">
-            <div class="principle-card">
-              <span class="principle-num">01</span>
-              <div>
-                <h4 class="principle-title">Performance-First Mindset</h4>
-                <p class="principle-desc">Zero superfluous bloat. Optimized bundle payloads, responsive assets, and sub-second page loads.</p>
-              </div>
-            </div>
-            <div class="principle-card">
-              <span class="principle-num">02</span>
-              <div>
-                <h4 class="principle-title">Modular &amp; Maintainable Code</h4>
-                <p class="principle-desc">Decoupled components, transparent database migrations, and clean architectural boundaries.</p>
-              </div>
-            </div>
-            <div class="principle-card">
-              <span class="principle-num">03</span>
-              <div>
-                <h4 class="principle-title">Accessible &amp; Intuitive UX</h4>
-                <p class="principle-desc">Every interactive element has proper contrast, keyboard navigability, and responsive feedback.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact & Connect Section -->
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="contact-box">
+      <!-- Card 4: Technical Focus -->
+      <section class="bento-card card-stack">
+        <div class="section-label">Technical Focus</div>
+        <div class="stack-columns">
           <div>
-            <span class="section-tag">// GET IN TOUCH</span>
-            <h2 class="section-title" style="font-size: 2.25rem;">Let's build something exceptional together</h2>
-            <p style="margin-bottom: 24px;">
-              Currently open to full-time roles, freelance contracts, and software collaborations. Feel free to reach out via any channel below!
-            </p>
-
-            <div class="contact-channels">
-              <!-- Telegram -->
-              <a href="https://t.me/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="channel-card">
-                <div class="channel-info">
-                  <div class="channel-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
-                  </div>
-                  <div>
-                    <div class="channel-label">Telegram</div>
-                    <div class="channel-val">@vitaliinewhalo</div>
-                  </div>
-                </div>
-                <span class="copy-badge">Direct Chat &nearr;</span>
-              </a>
-
-              <!-- GitHub -->
-              <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="channel-card">
-                <div class="channel-info">
-                  <div class="channel-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                  </div>
-                  <div>
-                    <div class="channel-label">GitHub</div>
-                    <div class="channel-val">vitaliinewhalo</div>
-                  </div>
-                </div>
-                <span class="copy-badge">Repositories &nearr;</span>
-              </a>
-
-              <!-- Email -->
-              <div class="channel-card" data-copy="vitaliinewhalo@gmail.com" title="Click to copy email">
-                <div class="channel-info">
-                  <div class="channel-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  </div>
-                  <div>
-                    <div class="channel-label">Email (Click to Copy)</div>
-                    <div class="channel-val">vitaliinewhalo@gmail.com</div>
-                  </div>
-                </div>
-                <span class="copy-badge">Copy 📋</span>
-              </div>
+            <div class="stack-group-title">Frontend Engineering</div>
+            <div class="stack-group-desc">
+              Semantic HTML5, modern CSS3, responsive systems, React, client-side state, and performance optimization.
             </div>
           </div>
-
-          <!-- Quick Message Form -->
-          <form class="contact-form" id="contactForm">
-            <h3 style="font-size: 1.25rem; margin-bottom: 6px;">Send a Direct Message</h3>
-            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 12px;">Fills out an email draft instantly to connect.</p>
-
-            <div class="form-group">
-              <label for="formName">Your Name</label>
-              <input type="text" id="formName" class="form-input" placeholder="e.g. Alexander Smith" required>
+          <div>
+            <div class="stack-group-title">Backend &amp; Automation</div>
+            <div class="stack-group-desc">
+              Custom Python scripts, asynchronous event loops, external API integrations, data processing, and deployment workflows.
             </div>
-
-            <div class="form-group">
-              <label for="formEmail">Your Email</label>
-              <input type="email" id="formEmail" class="form-input" placeholder="e.g. alex@company.com" required>
-            </div>
-
-            <div class="form-group">
-              <label for="formMessage">Project Details / Message</label>
-              <textarea id="formMessage" class="form-textarea" placeholder="Tell me about your project, timeline, or idea..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
-              <span>Send Message</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            </button>
-          </form>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <div>
-        <span>&copy; <span id="currentYear">2026</span> Vitalii. Built with modern HTML5 &amp; CSS3. Hosted on GitHub Pages.</span>
-      </div>
-      <div class="footer-links">
-        <a href="#hero" class="nav-link">Back to Top &uarr;</a>
-        <a href="https://github.com/vitaliinewhalo/vitaliinewhalo.github.io" target="_blank" rel="noopener noreferrer" class="nav-link">Source Code</a>
-      </div>
-    </div>
-  </footer>
+      <!-- Card 5: Direct Channels -->
+      <section class="bento-card card-contact">
+        <div class="section-label">Connect</div>
+        <div class="contacts-list">
+          <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <span>GitHub</span>
+            <span style="color: var(--text-muted);">&nearr;</span>
+          </a>
+          <a href="https://t.me/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <span>Telegram</span>
+            <span style="color: var(--text-muted);">&nearr;</span>
+          </a>
+          <div id="copyEmailTrigger" class="contact-item" title="Click to copy email address">
+            <span>Email</span>
+            <span style="color: var(--text-muted);">Copy</span>
+          </div>
+        </div>
+      </section>
 
-  <!-- Toast Element -->
-  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite"></div>
+    </main>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
+    <footer class="footer-note">
+      vitaliinewhalo.github.io &middot; Hosted on GitHub Pages
+    </footer>
+  </div>
+
+  <div id="toast" class="toast-msg" role="status" aria-live="polite">
+    vitaliinewhalo@gmail.com copied to clipboard
+  </div>
+
+  <script>
+    (function() {
+      // Theme Toggle Logic
+      const root = document.documentElement;
+      const themeBtn = document.getElementById('themeToggleBtn');
+      const themeLabel = document.getElementById('themeLabel');
+
+      function setTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('vh_theme', theme);
+        if (themeLabel) {
+          themeLabel.textContent = theme === 'dark' ? 'Light' : 'Dark';
+        }
+      }
+
+      const savedTheme = localStorage.getItem('vh_theme') || 'dark';
+      setTheme(savedTheme);
+
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const current = root.getAttribute('data-theme') || 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          setTheme(next);
+        });
+      }
+
+      // Copy Email Toast
+      const copyBtn = document.getElementById('copyEmailTrigger');
+      const toast = document.getElementById('toast');
+      let toastTimer = null;
+
+      if (copyBtn && toast) {
+        copyBtn.addEventListener('click', () => {
+          const email = 'vitaliinewhalo@gmail.com';
+          navigator.clipboard.writeText(email).then(() => {
+            showToast();
+          }).catch(() => {
+            const el = document.createElement('textarea');
+            el.value = email;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            showToast();
+          });
+        });
+      }
+
+      function showToast() {
+        if (!toast) return;
+        toast.classList.add('visible');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('visible');
+        }, 2200);
+      }
+    })();
+  </script>
 </body>
 </html>
