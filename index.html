@@ -3,90 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vitalii — Web &amp; Automation Developer</title>
-  <meta name="description" content="Portfolio of Vitalii. Web development and custom Python automation. Flagship studio: new-halo.com.">
+  <title>Vitalii // Web &amp; Automation Developer (Nothing OS Edition)</title>
+  <meta name="description" content="Portfolio of Vitalii. Full-stack web development and Python automation. Featuring Newhalo.">
   <link rel="canonical" href="https://vitaliinewhalo.github.io/">
 
+  <!-- Google Fonts: Doto (Authentic Nothing NDot matrix) & Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Doto:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-ndot: 'Doto', monospace;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      /* Deep Glassmorphism Palette */
-      --bg: #06070a;
-      --stripe: rgba(255, 255, 255, 0.038);
+      /* Nothing OS Signature Palette */
+      --bg: #050505;
+      --surface: #101114;
+      --surface-hover: #16171d;
+      --surface-card: #0d0e12;
+      --border: #22242c;
+      --border-bright: #383c48;
       
-      /* Thick Liquid Glass Layering */
-      --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(18, 21, 29, 0.55) 45%, rgba(255, 255, 255, 0.02) 100%);
-      --glass-bg-hover: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(22, 26, 36, 0.68) 50%, rgba(255, 255, 255, 0.04) 100%);
-      --glass-border: rgba(255, 255, 255, 0.15);
-      --glass-border-hover: rgba(255, 255, 255, 0.28);
-      --glass-shadow: 
-        inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
-        inset 1px 0 1px 0 rgba(255, 255, 255, 0.12),
-        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.35),
-        0 24px 48px -12px rgba(0, 0, 0, 0.7);
+      --text-primary: #ffffff;
+      --text-secondary: #9094a6;
+      --text-dim: #505464;
 
-      /* Floating Prism Glass */
-      --lens-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.03) 60%, rgba(255, 255, 255, 0.08) 100%);
-      --lens-border: rgba(255, 255, 255, 0.28);
-      --lens-shadow: 
-        inset 0 1.5px 2px rgba(255, 255, 255, 0.45),
-        inset 0 -1px 2px rgba(0, 0, 0, 0.4),
-        0 20px 40px rgba(0, 0, 0, 0.6);
+      /* The Iconic Nothing Red */
+      --nothing-red: #d71921;
+      --nothing-red-glow: rgba(215, 25, 33, 0.4);
 
-      --card-cocoa: linear-gradient(135deg, rgba(74, 58, 48, 0.5) 0%, rgba(36, 28, 23, 0.65) 100%);
-      --card-cocoa-border: rgba(255, 205, 175, 0.18);
-
-      --text-main: #f5f6fa;
-      --text-muted: #9297a7;
-      --text-dim: #5c6274;
-
-      --accent-yellow: #f5c451;
-      --accent-yellow-text: #171408;
-      --accent-amber: #eab308;
-      --accent-glow: rgba(245, 196, 81, 0.25);
-
-      --radius-sm: 14px;
-      --radius-md: 20px;
-      --radius-lg: 28px;
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
       --radius-pill: 9999px;
-      --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     [data-theme="light"] {
-      --bg: #ece9e2;
-      --stripe: rgba(0, 0, 0, 0.045);
+      --bg: #f2f2f0;
+      --surface: #ffffff;
+      --surface-hover: #f8f8f7;
+      --surface-card: #fafaf9;
+      --border: #dcdcd8;
+      --border-bright: #b8b8b0;
 
-      --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 246, 242, 0.6) 100%);
-      --glass-bg-hover: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.75) 100%);
-      --glass-border: rgba(255, 255, 255, 0.8);
-      --glass-border-hover: rgba(255, 255, 255, 0.95);
-      --glass-shadow: 
-        inset 0 1px 2px rgba(255, 255, 255, 0.9),
-        0 18px 40px -10px rgba(0, 0, 0, 0.08);
+      --text-primary: #0a0a0c;
+      --text-secondary: #585c6a;
+      --text-dim: #9498a6;
 
-      --lens-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
-      --lens-border: rgba(255, 255, 255, 0.9);
-      --lens-shadow: 
-        inset 0 1.5px 2px rgba(255, 255, 255, 0.95),
-        0 20px 40px rgba(0, 0, 0, 0.08);
-
-      --card-cocoa: linear-gradient(135deg, rgba(235, 222, 212, 0.9) 0%, rgba(215, 198, 185, 0.75) 100%);
-      --card-cocoa-border: rgba(150, 115, 95, 0.2);
-
-      --text-main: #141721;
-      --text-muted: #575e70;
-      --text-dim: #9aa1b3;
-
-      --accent-yellow: #e6b334;
-      --accent-yellow-text: #14161d;
-      --accent-amber: #d97706;
-      --accent-glow: rgba(230, 179, 52, 0.2);
+      --nothing-red: #d71921;
+      --nothing-red-glow: rgba(215, 25, 33, 0.25);
     }
 
     *, *::before, *::after {
@@ -96,634 +64,520 @@
     }
 
     body {
-      font-family: var(--font-main);
+      font-family: var(--font-sans);
       background-color: var(--bg);
-      color: var(--text-main);
+      color: var(--text-primary);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 48px 20px;
+      padding: 44px 20px;
+      line-height: 1.5;
       position: relative;
       overflow-x: hidden;
       transition: background-color var(--transition), color var(--transition);
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Vertical Architectural Pinstripe Grid */
-    .pinstripe-bg {
+    /* Nothing OS Micro-Grid Background */
+    .nothing-grid-bg {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
-      background-image: linear-gradient(90deg, var(--stripe) 1px, transparent 1px);
-      background-size: 68px 100%;
-      mask-image: radial-gradient(ellipse at 50% 50%, #000 65%, transparent 95%);
-      -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 65%, transparent 95%);
+      background-image: 
+        radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 0);
+      background-size: 32px 32px;
+      opacity: 0.7;
     }
 
-    /* Ambient Lighting Behind Glass */
-    .ambient-glow-1 {
-      position: fixed;
-      top: 15%;
-      left: 18%;
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, rgba(245, 196, 81, 0.11) 0%, transparent 70%);
-      filter: blur(80px);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .ambient-glow-2 {
-      position: fixed;
-      bottom: 20%;
-      right: 15%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
-      filter: blur(90px);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .ambient-glow-3 {
-      position: fixed;
-      top: 40%;
-      right: 25%;
-      width: 380px;
-      height: 380px;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.06) 0%, transparent 70%);
-      filter: blur(85px);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .canvas-container {
+    .canvas {
       width: 100%;
-      max-width: 960px;
+      max-width: 900px;
       position: relative;
       z-index: 1;
     }
 
-    /* Style Board Canvas Layout */
-    .style-canvas {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 22px;
-      align-items: start;
-      position: relative;
-    }
-
-    .canvas-col {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-
-    /* Frosted Glass Base */
-    .glass-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(36px) saturate(210%);
-      -webkit-backdrop-filter: blur(36px) saturate(210%);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
-      border-radius: var(--radius-lg);
-      padding: 30px;
-      position: relative;
-      transition: all var(--transition);
-    }
-
-    .glass-card:hover {
-      border-color: var(--glass-border-hover);
-      background: var(--glass-bg-hover);
-      transform: translateY(-2px);
-    }
-
-    /* Planner Widget (Top Left) */
-    .planner-card {
-      padding: 32px;
-    }
-
-    .planner-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 24px;
-    }
-
-    .planner-title {
-      font-size: 1.875rem;
-      font-weight: 700;
-      letter-spacing: -0.035em;
-    }
-
-    .planner-sup {
-      font-family: var(--font-mono);
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .planner-items {
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-    }
-
-    .planner-row {
+    /* Top Status Bar (Nothing OS Header) */
+    .top-status-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 18px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius-md);
-      transition: all var(--transition);
-      backdrop-filter: blur(16px);
-    }
-
-    .planner-row:hover {
-      background: rgba(255, 255, 255, 0.07);
-      border-color: rgba(255, 255, 255, 0.16);
-    }
-
-    .planner-row-title {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 2px;
-    }
-
-    .planner-row-sub {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
+      margin-bottom: 20px;
+      padding: 0 4px;
       font-family: var(--font-mono);
-    }
-
-    .icon-checked {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--accent-yellow);
-      color: var(--accent-yellow-text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 0 12px var(--accent-glow);
-    }
-
-    .icon-circle {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      border: 1.5px solid var(--text-dim);
-      flex-shrink: 0;
-    }
-
-    /* Floating Center Glass Lens (The Iconic Glass Slab from Reference) */
-    .floating-glass-lens {
-      position: absolute;
-      top: 140px;
-      left: 45%;
-      transform: translateX(-50%);
-      width: 170px;
-      height: 220px;
-      background: var(--lens-bg);
-      backdrop-filter: blur(48px) saturate(240%);
-      -webkit-backdrop-filter: blur(48px) saturate(240%);
-      border: 1.5px solid var(--lens-border);
-      box-shadow: var(--lens-shadow);
-      border-radius: var(--radius-lg);
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 16px;
-      pointer-events: none;
-      transition: transform var(--transition);
-    }
-
-    .floating-glass-lens .lens-tag {
-      background: var(--accent-yellow);
-      color: var(--accent-yellow-text);
       font-size: 0.75rem;
-      font-weight: 700;
-      font-family: var(--font-sans);
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      box-shadow: 0 4px 14px var(--accent-glow);
-      letter-spacing: -0.01em;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    /* Bottom Left: Icon pill + Digital Clock */
-    .bottom-left-row {
-      display: flex;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .mini-lens-card {
-      width: 90px;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
-      border-radius: var(--radius-lg);
+    .top-status-left {
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      backdrop-filter: blur(36px);
-      -webkit-backdrop-filter: blur(36px);
+      gap: 12px;
     }
 
-    .abstract-shape {
-      width: 44px;
-      height: 44px;
-      background: var(--text-main);
-      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='14' cy='30' r='8'/%3E%3Ccircle cx='30' cy='14' r='8'/%3E%3Cpath d='M14 22 L30 22' stroke='black' stroke-width='10' stroke-linecap='round' transform='rotate(-45 22 22)'/%3E%3C/svg%3E") no-repeat center;
-      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='14' cy='30' r='8'/%3E%3Ccircle cx='30' cy='14' r='8'/%3E%3Cpath d='M14 22 L30 22' stroke='black' stroke-width='10' stroke-linecap='round' transform='rotate(-45 22 22)'/%3E%3C/svg%3E") no-repeat center;
-      mask-size: contain;
-      -webkit-mask-size: contain;
-      opacity: 0.9;
-    }
-
-    .clock-widget {
-      flex: 1;
-      padding: 22px 26px;
-      display: flex;
+    .rec-indicator {
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      border-radius: var(--radius-lg);
+      gap: 6px;
+      color: var(--nothing-red);
+      font-weight: 600;
     }
 
-    .clock-dial-left {
+    .red-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--nothing-red);
+      box-shadow: 0 0 10px var(--nothing-red-glow);
+      animation: pulse-red 2s infinite ease-out;
+    }
+
+    @keyframes pulse-red {
+      0% { transform: scale(0.95); opacity: 0.9; }
+      50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 14px var(--nothing-red); }
+      100% { transform: scale(0.95); opacity: 0.9; }
+    }
+
+    /* Bento Grid */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 5px;
+      justify-content: space-between;
+      position: relative;
+      transition: all var(--transition);
     }
 
-    .dial-circle {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1.5px solid var(--glass-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    .card:hover {
+      border-color: var(--border-bright);
+      background: var(--surface-hover);
     }
 
-    .dial-center-dot {
-      width: 9px;
-      height: 9px;
-      background: var(--accent-yellow);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent-glow);
-    }
-
-    .dial-sub {
+    /* Corner Alignment Crosshairs [+] */
+    .crosshair-tl {
+      position: absolute;
+      top: 10px;
+      right: 12px;
       font-family: var(--font-mono);
       font-size: 0.6875rem;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      user-select: none;
     }
 
-    .clock-time-display {
+    /* Card 1: Identity & Bio */
+    .card-profile {
+      grid-column: span 2;
+    }
+
+    .ndot-tag {
+      font-family: var(--font-ndot);
+      font-size: 0.875rem;
+      letter-spacing: 0.15em;
+      color: var(--nothing-red);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .profile-name {
+      font-family: var(--font-ndot);
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .profile-desc {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 500px;
+      margin-top: auto;
+    }
+
+    /* Card 2: Digital Clock Widget */
+    .card-clock {
+      grid-column: span 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .clock-widget-label {
       font-family: var(--font-mono);
-      font-size: 2.375rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: var(--text-main);
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .nothing-clock {
+      font-family: var(--font-ndot);
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      margin: 16px 0;
       display: flex;
       align-items: baseline;
-      gap: 8px;
+      justify-content: center;
     }
 
-    .clock-colon {
+    .colon {
       animation: blink 1s infinite steps(1);
+      color: var(--nothing-red);
     }
 
     @keyframes blink {
       50% { opacity: 0.2; }
     }
 
-    .clock-period {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      line-height: 1.1;
+    .clock-footer-spec {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       font-family: var(--font-mono);
-      font-weight: 500;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
     }
 
-    /* Right Column: Visual Inspiration + Calendar + Flagship */
-    .top-right-row {
+    /* Card 3: Flagship NEWHALO Showcase (Full Width) */
+    .card-flagship {
+      grid-column: span 3;
+      padding: 30px;
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 18px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: center;
+      position: relative;
     }
 
-    /* Calendar Card (Cocoa Warm Tone) */
-    .calendar-card {
-      background: var(--card-cocoa);
-      border: 1px solid var(--card-cocoa-border);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      backdrop-filter: blur(36px);
-      -webkit-backdrop-filter: blur(36px);
-      box-shadow: var(--glass-shadow);
+    .flagship-brand-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .newhalo-logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 3px;
+    }
+
+    .newhalo-wordmark {
+      font-family: var(--font-sans);
+      font-size: 1.375rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .flagship-badge {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(215, 25, 33, 0.12);
+      color: var(--nothing-red);
+      border: 1px solid rgba(215, 25, 33, 0.3);
+    }
+
+    .flagship-heading {
+      font-family: var(--font-ndot);
+      font-size: 1.625rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .flagship-text {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .tech-specs-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .spec-pill {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .launch-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--text-primary);
+      color: var(--bg);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .launch-link-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      background: #ffffff;
+      color: #000000;
+    }
+
+    /* Hardware Viewport Screen for Preview */
+    .preview-viewport {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #000000;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+      max-height: 240px;
+    }
+
+    .preview-viewport img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.08) brightness(0.95);
+      transition: transform 0.4s ease;
+    }
+
+    .preview-viewport:hover img {
+      transform: scale(1.03);
+    }
+
+    .viewport-overlay {
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      background: rgba(0, 0, 0, 0.7);
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Card 4: Hardware Specs / Tech Focus */
+    .card-specs {
+      grid-column: span 2;
+    }
+
+    .specs-header {
+      font-family: var(--font-ndot);
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .spec-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .spec-box-desc {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Card 5: Tape Reel / Audio Loop Widget (Nothing Style) */
+    .card-reel {
+      grid-column: span 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .calendar-header {
+    .reel-visual {
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 16px;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 10px 0;
     }
 
-    .calendar-day {
-      font-size: 2.375rem;
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-
-    .calendar-month {
-      font-family: var(--font-mono);
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    /* 6x4 Activity Dot Matrix */
-    .activity-dot-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 8px;
-    }
-
-    .act-dot {
-      width: 7px;
-      height: 7px;
+    .cassette-spool {
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.16);
-      margin: auto;
-    }
-
-    .act-dot.active-yellow {
-      background: var(--accent-yellow);
-      box-shadow: 0 0 10px var(--accent-glow);
-    }
-
-    .act-dot.active-dim {
-      background: rgba(255, 255, 255, 0.45);
-    }
-
-    /* Photo Tile (Wave Visual) */
-    .photo-tile {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      position: relative;
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
-      min-height: 145px;
-    }
-
-    .photo-tile img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: brightness(0.92) contrast(1.1);
-      transition: transform 0.5s ease;
-    }
-
-    .photo-tile:hover img {
-      transform: scale(1.05);
-    }
-
-    /* Flagship Studio Card (Newhalo) */
-    .flagship-card {
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .flagship-top {
+      border: 2px dashed var(--border-bright);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 18px;
+      justify-content: center;
+      animation: rotate-spool 8s linear infinite;
     }
 
-    .pill-badge-yellow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 16px;
-      background: var(--accent-yellow);
-      color: var(--accent-yellow-text);
-      font-family: var(--font-sans);
-      font-size: 0.8125rem;
-      font-weight: 700;
-      border-radius: var(--radius-pill);
-      box-shadow: 0 4px 14px var(--accent-glow);
+    @keyframes rotate-spool {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
-    .flagship-domain {
-      font-family: var(--font-mono);
-      font-size: 0.8125rem;
-      color: var(--text-muted);
+    .spool-center {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--nothing-red);
     }
 
-    .flagship-name {
-      font-size: 1.625rem;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      margin-bottom: 10px;
-      line-height: 1.25;
-    }
-
-    .flagship-description {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-
-    .flagship-action-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.09);
-    }
-
-    .stack-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .stack-tag {
+    .reel-caption {
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      padding: 4px 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 8px;
-      color: var(--text-muted);
+      color: var(--text-secondary);
+      text-align: center;
     }
 
-    .launch-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--text-main);
-      color: var(--bg);
-      font-size: 0.875rem;
-      font-weight: 700;
-      border-radius: var(--radius-pill);
-      text-decoration: none;
-      transition: all var(--transition);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-    }
-
-    .launch-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-      filter: brightness(1.1);
-    }
-
-    /* Bottom Control Bar & Footer Label */
-    .bottom-bar {
-      margin-top: 26px;
+    /* Bottom Nothing OS Quick Toggles Bar */
+    .quick-toggles-bar {
+      margin-top: 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 24px;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
+      padding: 12px 18px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
       border-radius: var(--radius-pill);
-      backdrop-filter: blur(36px);
-      -webkit-backdrop-filter: blur(36px);
     }
 
-    .styleboard-caption {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
+    .brand-subline {
+      font-family: var(--font-ndot);
+      font-size: 0.8125rem;
+      letter-spacing: 0.15em;
       color: var(--text-dim);
     }
 
-    .bottom-links {
+    .toggle-pills {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 8px;
     }
 
-    .channel-link {
+    .pill-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
       font-family: var(--font-mono);
-      font-size: 0.8125rem;
-      color: var(--text-muted);
+      font-size: 0.75rem;
+      color: var(--text-primary);
       text-decoration: none;
-      transition: color var(--transition);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      background: transparent;
-      border: none;
-    }
-
-    .channel-link:hover {
-      color: var(--text-main);
-    }
-
-    .theme-switch-btn {
-      padding: 5px 12px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-pill);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-main);
-      cursor: pointer;
+      gap: 6px;
       transition: all var(--transition);
     }
 
-    .theme-switch-btn:hover {
-      border-color: rgba(255, 255, 255, 0.35);
-      background: rgba(255, 255, 255, 0.1);
+    .pill-btn:hover {
+      border-color: var(--border-bright);
+      background: var(--surface-hover);
+    }
+
+    .pill-btn.btn-red {
+      color: var(--nothing-red);
     }
 
     /* Toast Notification */
-    .toast-popup {
+    .toast-box {
       position: fixed;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: var(--glass-bg);
-      backdrop-filter: blur(36px);
-      -webkit-backdrop-filter: blur(36px);
-      border: 1px solid var(--glass-border-hover);
-      box-shadow: var(--glass-shadow);
-      color: var(--text-main);
-      padding: 11px 22px;
-      border-radius: var(--radius-pill);
+      bottom: 24px;
+      background: #000000;
+      color: #ffffff;
+      border: 1px solid var(--border-bright);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
       font-family: var(--font-mono);
-      font-size: 0.8125rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
       opacity: 0;
-      pointer-events: none;
+      transform: translateY(12px);
       transition: all var(--transition);
+      pointer-events: none;
       z-index: 1000;
     }
 
-    .toast-popup.active {
+    .toast-box.show {
       opacity: 1;
-      transform: translateX(-50%) translateY(0);
+      transform: translateY(0);
     }
 
-    /* Responsive Breakpoints */
-    @media (max-width: 900px) {
-      .floating-glass-lens {
-        display: none;
-      }
-    }
-
+    /* Mobile Responsive */
     @media (max-width: 768px) {
-      .style-canvas {
+      .bento {
         grid-template-columns: 1fr;
       }
-      .top-right-row {
+      .card-profile, .card-clock, .card-flagship, .card-specs, .card-reel {
+        grid-column: span 1;
+      }
+      .card-flagship {
         grid-template-columns: 1fr;
       }
-      .bottom-left-row {
-        flex-direction: column;
+      .specs-grid {
+        grid-template-columns: 1fr;
       }
-      .mini-lens-card {
-        width: 100%;
-        height: 60px;
-      }
-      .bottom-bar {
+      .quick-toggles-bar {
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
         border-radius: var(--radius-lg);
-        text-align: center;
+      }
+      .toggle-pills {
+        flex-wrap: wrap;
+        justify-content: center;
       }
       body {
         padding: 24px 14px;
@@ -733,239 +587,203 @@
 </head>
 <body>
 
-  <!-- Vertical Pinstripe Grid Overlay -->
-  <div class="pinstripe-bg" aria-hidden="true"></div>
+  <!-- Nothing OS Micro-Grid Background -->
+  <div class="nothing-grid-bg" aria-hidden="true"></div>
 
-  <!-- Ambient Light Orbs (Gives Frosted Glass Real Liquid Refraction) -->
-  <div class="ambient-glow-1" aria-hidden="true"></div>
-  <div class="ambient-glow-2" aria-hidden="true"></div>
-  <div class="ambient-glow-3" aria-hidden="true"></div>
+  <div class="canvas">
 
-  <div class="canvas-container">
-    <main class="style-canvas">
-
-      <!-- Signature Floating Refractive Glass Lens (from reference) -->
-      <div class="floating-glass-lens" aria-hidden="true">
-        <span class="lens-tag">Newhalo Studio</span>
+    <!-- Top Status Bar -->
+    <header class="top-status-bar">
+      <div class="top-status-left">
+        <span class="rec-indicator"><span class="red-dot"></span> LIVE</span>
+        <span>SYS.ONLINE // VITALII</span>
       </div>
+      <div>COPENHAGEN // UKRAINE</div>
+    </header>
 
-      <!-- LEFT COLUMN -->
-      <div class="canvas-col">
-        <!-- Card 1: Planner / Profile -->
-        <article class="glass-card planner-card">
-          <div class="planner-header">
-            <h1 class="planner-title">Planner</h1>
-            <span class="planner-sup">(1)</span>
-          </div>
+    <!-- Main Nothing OS Bento Canvas -->
+    <main class="bento">
 
-          <div class="planner-items">
-            <!-- Row 1: Active Status -->
-            <div class="planner-row">
-              <div>
-                <div class="planner-row-title">Vitalii</div>
-                <div class="planner-row-sub">Web &amp; Python Automation</div>
-              </div>
-              <div class="icon-checked" title="Available for work">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Row 2: Activities -->
-            <div class="planner-row">
-              <div>
-                <div class="planner-row-title">Frontend Engineering</div>
-                <div class="planner-row-sub">React / Semantic UI / High Performance</div>
-              </div>
-              <div class="icon-circle"></div>
-            </div>
-
-            <!-- Row 3: Backend Automation -->
-            <div class="planner-row">
-              <div>
-                <div class="planner-row-title">Python Automation</div>
-                <div class="planner-row-sub">Bespoke Scripts / APIs / Workflows</div>
-              </div>
-              <div class="icon-circle"></div>
-            </div>
-
-            <!-- Row 4: Studio -->
-            <div class="planner-row">
-              <div>
-                <div class="planner-row-title">Newhalo Studio</div>
-                <div class="planner-row-sub">Available for Select Projects</div>
-              </div>
-              <div class="icon-circle"></div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Bottom Left: Lens + Clock -->
-        <div class="bottom-left-row">
-          <div class="mini-lens-card" title="Design System Material">
-            <div class="abstract-shape"></div>
-          </div>
-
-          <div class="glass-card clock-widget">
-            <div class="clock-dial-left">
-              <div class="dial-circle">
-                <div class="dial-center-dot"></div>
-              </div>
-              <span class="dial-sub">TIME</span>
-            </div>
-
-            <div class="clock-time-display">
-              <span id="clockHours">12</span><span class="clock-colon">:</span><span id="clockMinutes">00</span>
-              <span class="clock-period" id="clockPeriod">AM</span>
-            </div>
-          </div>
+      <!-- Widget 1: Developer Profile & Statement -->
+      <article class="card card-profile">
+        <span class="crosshair-tl">[ + ]</span>
+        <div>
+          <span class="ndot-tag">( PROFILE.01 )</span>
+          <h1 class="profile-name">Vitalii // Full-Stack &amp; Python</h1>
         </div>
-      </div>
+        <p class="profile-desc">
+          Independent developer building bespoke high-performance web products, rapid frontends, and custom Python automation infrastructure.
+        </p>
+      </article>
 
-      <!-- RIGHT COLUMN -->
-      <div class="canvas-col">
+      <!-- Widget 2: Signature Nothing OS Dot-Matrix Clock -->
+      <article class="card card-clock">
+        <span class="crosshair-tl">[ TIME ]</span>
+        <div class="clock-widget-label">SYS_CLOCK // 24H</div>
 
-        <!-- Top Right Row: Calendar + Wave Photo -->
-        <div class="top-right-row">
-          <!-- Calendar Tile -->
-          <article class="calendar-card">
-            <div class="calendar-header">
-              <div class="calendar-day" id="calDay">29</div>
-              <div class="calendar-month" id="calMonth">SEP</div>
-            </div>
-
-            <div class="activity-dot-grid" aria-hidden="true">
-              <span class="act-dot"></span><span class="act-dot"></span><span class="act-dot active-dim"></span><span class="act-dot"></span><span class="act-dot"></span><span class="act-dot"></span>
-              <span class="act-dot active-yellow"></span><span class="act-dot"></span><span class="act-dot"></span><span class="act-dot active-dim"></span><span class="act-dot"></span><span class="act-dot"></span>
-              <span class="act-dot"></span><span class="act-dot"></span><span class="act-dot active-yellow"></span><span class="act-dot"></span><span class="act-dot active-yellow"></span><span class="act-dot"></span>
-              <span class="act-dot active-dim"></span><span class="act-dot"></span><span class="act-dot"></span><span class="act-dot active-yellow"></span><span class="act-dot"></span><span class="act-dot"></span>
-            </div>
-          </article>
-
-          <!-- Wave Photo Card -->
-          <div class="photo-tile">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Ocean wave visual texture" loading="lazy">
-          </div>
+        <div class="nothing-clock">
+          <span id="nothingHours">12</span><span class="colon">:</span><span id="nothingMinutes">00</span>
         </div>
 
-        <!-- Flagship Project Card: Newhalo -->
-        <article class="glass-card flagship-card">
-          <div class="flagship-top">
-            <span class="pill-badge-yellow">Newhalo</span>
-            <span class="flagship-domain">new-halo.com</span>
+        <div class="clock-footer-spec">
+          <span id="nothingDate">29 SEP 2026</span>
+          <span style="color: var(--nothing-red); font-weight: 700;">100% OK</span>
+        </div>
+      </article>
+
+      <!-- Widget 3: Flagship Project NEWHALO (Featuring Logo + Real Preview) -->
+      <article class="card card-flagship">
+        <span class="crosshair-tl">[ 01.FLAGSHIP ]</span>
+
+        <!-- Left Info -->
+        <div>
+          <div class="flagship-brand-header">
+            <img src="newhalo-logo.svg" alt="Newhalo logo" class="newhalo-logo-img">
+            <span class="newhalo-wordmark">Newhalo.</span>
+            <span class="flagship-badge">FLAGSHIP STUDIO</span>
           </div>
 
-          <h2 class="flagship-name">High-End Web Design &amp; Custom Python Automation</h2>
-          <p class="flagship-description">
-            Bespoke digital studio building rapid, responsive web products and custom automation pipelines for modern businesses.
+          <h2 class="flagship-heading">High-End Web Design &amp; Python Automation</h2>
+          <p class="flagship-text">
+            Bespoke digital agency platform building rapid, responsive web products, tailored digital solutions, and custom Python automated pipelines.
           </p>
 
-          <div class="flagship-action-row">
-            <div class="stack-tags">
-              <span class="stack-tag">React</span>
-              <span class="stack-tag">Python</span>
-              <span class="stack-tag">Automation</span>
-              <span class="stack-tag">Performance</span>
-            </div>
-
-            <a href="https://new-halo.com/" target="_blank" rel="noopener noreferrer" class="launch-btn">
-              <span>Visit Site</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
+          <div class="tech-specs-row">
+            <span class="spec-pill">REACT 18</span>
+            <span class="spec-pill">PYTHON 3.12</span>
+            <span class="spec-pill">AUTOMATION</span>
+            <span class="spec-pill">HIGH PERFORMANCE</span>
           </div>
-        </article>
 
-      </div>
+          <a href="https://new-halo.com/" target="_blank" rel="noopener noreferrer" class="launch-link-btn">
+            <span>Launch new-halo.com</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Right: Hardware Screen Viewport with Real Image Preview -->
+        <div class="preview-viewport">
+          <img src="newhalo-preview.png" alt="Newhalo studio work preview" loading="lazy">
+          <div class="viewport-overlay">new-halo.com // LIVE</div>
+        </div>
+      </article>
+
+      <!-- Widget 4: Core Technical Architecture -->
+      <article class="card card-specs">
+        <span class="crosshair-tl">[ STACK.SYS ]</span>
+        <h3 class="specs-header">Technical Focus</h3>
+
+        <div class="specs-grid">
+          <div>
+            <div class="spec-box-title">Frontend Engineering</div>
+            <div class="spec-box-desc">
+              Modern React architecture, semantic HTML5, zero-bloat CSS, responsive layout engines, and sub-second load times.
+            </div>
+          </div>
+          <div>
+            <div class="spec-box-title">Python Automation</div>
+            <div class="spec-box-desc">
+              Custom scrapers, event-driven async bots, REST API pipelines, background task processing, and automated cloud workflows.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Widget 5: Tape Reel / Continuous Automation Loop -->
+      <article class="card card-reel">
+        <span class="crosshair-tl">[ LOOP ]</span>
+        <div class="clock-widget-label">AUTOMATION ENGINE</div>
+
+        <div class="reel-visual" aria-hidden="true">
+          <div class="cassette-spool"><div class="spool-center"></div></div>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">&bull; &bull; &bull;</div>
+          <div class="cassette-spool"><div class="spool-center"></div></div>
+        </div>
+
+        <div class="reel-caption">CONTINUOUS PIPELINE ACTIVE</div>
+      </article>
 
     </main>
 
-    <!-- Bottom Capsule Bar: Navigation & Style Board Caption -->
-    <nav class="bottom-bar" aria-label="Quick links and controls">
-      <span class="styleboard-caption">STYLE BOARD &middot; VITALII</span>
+    <!-- Bottom Nothing OS Quick Toggles Bar -->
+    <nav class="quick-toggles-bar" aria-label="Control toggles and channels">
+      <span class="brand-subline">NOTHING OS // VITALII</span>
 
-      <div class="bottom-links">
-        <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="channel-link">
-          <span>GitHub</span>
+      <div class="toggle-pills">
+        <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="pill-btn">
+          <span>GITHUB</span>
         </a>
-        <a href="https://t.me/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="channel-link">
-          <span>Telegram</span>
+        <a href="https://t.me/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="pill-btn">
+          <span>TELEGRAM</span>
         </a>
-        <button id="copyBtn" class="channel-link" title="Copy Email">
-          <span>Email</span>
+        <button id="copyEmailBtn" class="pill-btn btn-red" title="Copy vitaliinewhalo@gmail.com">
+          <span>EMAIL</span>
         </button>
-        <button id="themeToggle" class="theme-switch-btn" title="Toggle Theme">
-          <span id="themeText">Theme</span>
+        <button id="themeToggleBtn" class="pill-btn" title="Toggle Light/Dark Theme">
+          <span id="themeLabel">LIGHT</span>
         </button>
       </div>
     </nav>
+
   </div>
 
-  <!-- Toast Notice -->
-  <div id="toast" class="toast-popup" role="status" aria-live="polite">
-    vitaliinewhalo@gmail.com copied to clipboard
+  <!-- Toast Element -->
+  <div id="toastBox" class="toast-box" role="status" aria-live="polite">
+    VITALIINEWHALO@GMAIL.COM COPIED TO CLIPBOARD
   </div>
 
   <script>
     (function() {
-      // 1. Live Digital Dot Clock
-      const hoursEl = document.getElementById('clockHours');
-      const minEl = document.getElementById('clockMinutes');
-      const periodEl = document.getElementById('clockPeriod');
+      // 1. Live Nothing OS Dot-Matrix Clock
+      const hoursEl = document.getElementById('nothingHours');
+      const minEl = document.getElementById('nothingMinutes');
+      const dateEl = document.getElementById('nothingDate');
 
       function updateClock() {
         const now = new Date();
-        let hours = now.getHours();
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const isPM = hours >= 12;
-        hours = hours % 12;
-        hours = hours ? hours : 12;
+        const h = String(now.getHours()).padStart(2, '0');
+        const m = String(now.getMinutes()).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = h;
+        if (minEl) minEl.textContent = m;
 
-        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-        if (minEl) minEl.textContent = minutes;
-        if (periodEl) periodEl.textContent = isPM ? 'PM' : 'AM';
+        if (dateEl) {
+          const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+          dateEl.textContent = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+        }
       }
       updateClock();
       setInterval(updateClock, 1000);
 
-      // 2. Dynamic Calendar Date
-      const dayEl = document.getElementById('calDay');
-      const monthEl = document.getElementById('calMonth');
-      const now = new Date();
-      if (dayEl) dayEl.textContent = now.getDate();
-      const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-      if (monthEl) monthEl.textContent = months[now.getMonth()];
-
-      // 3. Theme Switcher with LocalStorage
+      // 2. Nothing OS Theme Switcher
       const root = document.documentElement;
-      const themeBtn = document.getElementById('themeToggle');
-      const themeText = document.getElementById('themeText');
+      const themeBtn = document.getElementById('themeToggleBtn');
+      const themeLabel = document.getElementById('themeLabel');
 
-      function applyTheme(theme) {
+      function setTheme(theme) {
         root.setAttribute('data-theme', theme);
-        localStorage.setItem('v_theme', theme);
-        if (themeText) {
-          themeText.textContent = theme === 'dark' ? 'Light' : 'Dark';
+        localStorage.setItem('nothing_theme', theme);
+        if (themeLabel) {
+          themeLabel.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
         }
       }
 
-      const saved = localStorage.getItem('v_theme') || 'dark';
-      applyTheme(saved);
+      const savedTheme = localStorage.getItem('nothing_theme') || 'dark';
+      setTheme(savedTheme);
 
       if (themeBtn) {
         themeBtn.addEventListener('click', () => {
           const current = root.getAttribute('data-theme') || 'dark';
-          applyTheme(current === 'dark' ? 'light' : 'dark');
+          setTheme(current === 'dark' ? 'light' : 'dark');
         });
       }
 
-      // 4. Copy Email Trigger & Toast
-      const copyBtn = document.getElementById('copyBtn');
-      const toast = document.getElementById('toast');
-      let toastTimer = null;
+      // 3. One-Click Copy Email
+      const copyBtn = document.getElementById('copyEmailBtn');
+      const toast = document.getElementById('toastBox');
+      let timer = null;
 
       if (copyBtn && toast) {
         copyBtn.addEventListener('click', () => {
@@ -973,12 +791,12 @@
           navigator.clipboard.writeText(email).then(() => {
             showToast();
           }).catch(() => {
-            const temp = document.createElement('textarea');
-            temp.value = email;
-            document.body.appendChild(temp);
-            temp.select();
+            const el = document.createElement('textarea');
+            el.value = email;
+            document.body.appendChild(el);
+            el.select();
             document.execCommand('copy');
-            document.body.removeChild(temp);
+            document.body.removeChild(el);
             showToast();
           });
         });
@@ -986,11 +804,11 @@
 
       function showToast() {
         if (!toast) return;
-        toast.classList.add('active');
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => {
-          toast.classList.remove('active');
-        }, 2200);
+        toast.classList.add('show');
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2400);
       }
     })();
   </script>
