@@ -3,44 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vitalii — Web & Automation Developer</title>
-  <meta name="description" content="Personal portfolio of Vitalii. Web development and custom Python automation. Featured work: Newhalo.">
+  <title>Vitalii — Web &amp; Automation Developer</title>
+  <meta name="description" content="Portfolio of Vitalii. Web development and custom Python automation. Flagship studio: new-halo.com.">
   <link rel="canonical" href="https://vitaliinewhalo.github.io/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      --bg: #090a0f;
-      --surface: #11131a;
-      --surface-hover: #161922;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.18);
-      --text: #f1f5f9;
-      --text-muted: #848d9f;
-      --accent: #3b82f6;
-      --accent-subtle: rgba(59, 130, 246, 0.1);
-      --status: #10b981;
-      --radius: 14px;
-      --transition: 0.2s ease;
+      /* Dark Theme (Tactile Spatial Glassmorphism) */
+      --bg: #07080a;
+      --stripe: rgba(255, 255, 255, 0.028);
+      --glass-surface: rgba(20, 22, 28, 0.65);
+      --glass-surface-hover: rgba(26, 29, 38, 0.8);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px rgba(0, 0, 0, 0.5);
+      --glass-lens: rgba(255, 255, 255, 0.06);
+
+      --card-cocoa: rgba(43, 36, 32, 0.75);
+      --card-cocoa-border: rgba(255, 210, 180, 0.12);
+
+      --text-main: #f4f5f8;
+      --text-muted: #8b909f;
+      --text-dim: #555a69;
+
+      --accent-yellow: #f5c451;
+      --accent-yellow-text: #1a1608;
+      --accent-amber: #eab308;
+      --accent-glow: rgba(245, 196, 81, 0.25);
+
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-pill: 9999px;
+      --transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     [data-theme="light"] {
-      --bg: #f6f7fa;
-      --surface: #ffffff;
-      --surface-hover: #f1f3f8;
-      --border: rgba(15, 23, 42, 0.09);
-      --border-hover: rgba(15, 23, 42, 0.22);
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --accent: #2563eb;
-      --accent-subtle: rgba(37, 99, 235, 0.08);
-      --status: #059669;
+      --bg: #eceae5;
+      --stripe: rgba(0, 0, 0, 0.04);
+      --glass-surface: rgba(255, 255, 255, 0.7);
+      --glass-surface-hover: rgba(255, 255, 255, 0.9);
+      --glass-border: rgba(0, 0, 0, 0.08);
+      --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 16px 36px rgba(0, 0, 0, 0.08);
+      --glass-lens: rgba(255, 255, 255, 0.4);
+
+      --card-cocoa: rgba(230, 218, 208, 0.85);
+      --card-cocoa-border: rgba(120, 90, 70, 0.15);
+
+      --text-main: #14161d;
+      --text-muted: #5e6473;
+      --text-dim: #9aa0af;
+
+      --accent-yellow: #e6b334;
+      --accent-yellow-text: #14161d;
+      --accent-amber: #d97706;
+      --accent-glow: rgba(230, 179, 52, 0.2);
     }
 
     *, *::before, *::after {
@@ -50,475 +73,772 @@
     }
 
     body {
-      font-family: var(--font-sans);
+      font-family: var(--font-main);
       background-color: var(--bg);
-      color: var(--text);
+      color: var(--text-main);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 48px 20px;
-      line-height: 1.5;
+      padding: 40px 20px;
+      position: relative;
+      overflow-x: hidden;
       transition: background-color var(--transition), color var(--transition);
       -webkit-font-smoothing: antialiased;
     }
 
-    .wrapper {
+    /* Vertical Pinstripe Background Grid */
+    .pinstripe-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: linear-gradient(90deg, var(--stripe) 1px, transparent 1px);
+      background-size: 72px 100%;
+      mask-image: radial-gradient(ellipse at 50% 50%, #000 60%, transparent 95%);
+      -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 60%, transparent 95%);
+    }
+
+    .canvas-container {
       width: 100%;
-      max-width: 880px;
+      max-width: 940px;
+      position: relative;
+      z-index: 1;
     }
 
-    .bento-grid {
+    /* Style Board Canvas Layout */
+    .style-canvas {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 20px;
+      align-items: start;
     }
 
-    .bento-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
+    .canvas-col {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      transition: border-color var(--transition), background-color var(--transition);
+      gap: 20px;
+    }
+
+    /* Frosted Glass Cards */
+    .glass-card {
+      background: var(--glass-surface);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-highlight);
+      border-radius: var(--radius-lg);
+      padding: 28px;
       position: relative;
-    }
-
-    .bento-card:hover {
-      border-color: var(--border-hover);
-    }
-
-    .card-bio {
-      grid-column: span 2;
-    }
-
-    .card-meta {
-      grid-column: span 1;
-    }
-
-    .card-flagship {
-      grid-column: span 3;
-    }
-
-    .card-stack {
-      grid-column: span 2;
-    }
-
-    .card-contact {
-      grid-column: span 1;
-    }
-
-    .profile-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--status);
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 12px;
-      color: var(--text);
-    }
-
-    .bio-text {
-      font-size: 1rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 500px;
-    }
-
-    .theme-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .theme-btn {
-      background: var(--surface-hover);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-family: var(--font-mono);
-      font-size: 0.8125rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
       transition: all var(--transition);
     }
 
-    .theme-btn:hover {
-      border-color: var(--border-hover);
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      background: var(--glass-surface-hover);
     }
 
-    .meta-status-box {
-      margin-top: auto;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
+    /* Planner Widget (Top Left) */
+    .planner-card {
+      padding: 30px;
     }
 
-    .meta-title {
+    .planner-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .planner-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .planner-sup {
+      font-family: var(--font-mono);
       font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .planner-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .planner-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 16px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      transition: background var(--transition);
+    }
+
+    .planner-row:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .planner-row-title {
+      font-size: 0.9375rem;
       font-weight: 600;
-      color: var(--text);
-      margin-bottom: 4px;
+      color: var(--text-main);
+      margin-bottom: 2px;
     }
 
-    .meta-desc {
+    .planner-row-sub {
       font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .icon-checked {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-yellow);
+      color: var(--accent-yellow-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .icon-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid var(--text-dim);
+      flex-shrink: 0;
+    }
+
+    /* Bottom Left Row: Icon pill + Digital Clock */
+    .bottom-left-row {
+      display: flex;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .mini-lens-card {
+      width: 86px;
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-highlight);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      backdrop-filter: blur(28px);
+    }
+
+    .abstract-shape {
+      width: 44px;
+      height: 44px;
+      background: var(--text-main);
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='14' cy='30' r='8'/%3E%3Ccircle cx='30' cy='14' r='8'/%3E%3Cpath d='M14 22 L30 22' stroke='black' stroke-width='10' stroke-linecap='round' transform='rotate(-45 22 22)'/%3E%3C/svg%3E") no-repeat center;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='14' cy='30' r='8'/%3E%3Ccircle cx='30' cy='14' r='8'/%3E%3Cpath d='M14 22 L30 22' stroke='black' stroke-width='10' stroke-linecap='round' transform='rotate(-45 22 22)'/%3E%3C/svg%3E") no-repeat center;
+      mask-size: contain;
+      -webkit-mask-size: contain;
+      opacity: 0.85;
+    }
+
+    .clock-widget {
+      flex: 1;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: var(--radius-lg);
+    }
+
+    .clock-dial-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .dial-circle {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1.5px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .dial-center-dot {
+      width: 9px;
+      height: 9px;
+      background: var(--accent-yellow);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .dial-sub {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
       color: var(--text-muted);
     }
 
-    .flagship-header {
+    .clock-time-display {
+      font-family: var(--font-mono);
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .clock-colon {
+      animation: blink 1s infinite steps(1);
+    }
+
+    @keyframes blink {
+      50% { opacity: 0.25; }
+    }
+
+    .clock-period {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.1;
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+
+    /* Right Column: Visual Inspiration + Calendar + Flagship */
+    .top-right-row {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
       gap: 16px;
+    }
+
+    /* Calendar Card (Cocoa Warm Tone) */
+    .calendar-card {
+      background: var(--card-cocoa);
+      border: 1px solid var(--card-cocoa-border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      backdrop-filter: blur(28px);
+      box-shadow: var(--glass-highlight);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .calendar-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .calendar-day {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .calendar-month {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* 6x4 Activity Dot Matrix */
+    .activity-dot-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 7px;
+    }
+
+    .act-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.16);
+      margin: auto;
+    }
+
+    .act-dot.active-yellow {
+      background: var(--accent-yellow);
+      box-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    .act-dot.active-dim {
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    /* Photo Tile (Wave Visual) */
+    .photo-tile {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-highlight);
+      min-height: 140px;
+    }
+
+    .photo-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.9) contrast(1.1);
+      transition: transform 0.4s ease;
+    }
+
+    .photo-tile:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Flagship Studio Card (Newhalo) */
+    .flagship-card {
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flagship-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 16px;
     }
 
-    .flagship-tag {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      background: var(--accent-subtle);
-      padding: 3px 8px;
-      border-radius: 6px;
-      border: 1px solid rgba(59, 130, 246, 0.2);
+    .pill-badge-yellow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: var(--accent-yellow);
+      color: var(--accent-yellow-text);
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 14px var(--accent-glow);
     }
 
-    .flagship-title {
-      font-size: 1.375rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+    .flagship-domain {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .flagship-name {
+      font-size: 1.625rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
       margin-bottom: 8px;
     }
 
-    .flagship-desc {
+    .flagship-description {
       font-size: 0.9375rem;
       color: var(--text-muted);
       line-height: 1.6;
-      max-width: 650px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
-    .flagship-footer {
+    .flagship-action-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
       padding-top: 18px;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--glass-border);
     }
 
-    .tags-list {
+    .stack-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
 
-    .tag-item {
+    .stack-tag {
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      padding: 3px 8px;
+      padding: 3px 9px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--glass-border);
       border-radius: 6px;
-      background: var(--surface-hover);
       color: var(--text-muted);
-      border: 1px solid var(--border);
     }
 
-    .external-link {
+    .launch-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-family: var(--font-sans);
+      gap: 8px;
+      padding: 9px 18px;
+      background: var(--text-main);
+      color: var(--bg);
       font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text);
+      font-weight: 700;
+      border-radius: var(--radius-pill);
       text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      background: var(--surface-hover);
-      border: 1px solid var(--border);
       transition: all var(--transition);
     }
 
-    .external-link:hover {
-      border-color: var(--border-hover);
-      color: var(--accent);
+    .launch-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      filter: brightness(1.1);
     }
 
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .stack-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .stack-group-title {
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-
-    .stack-group-desc {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .contacts-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .contact-item {
+    /* Bottom Control Bar & Footer Label */
+    .bottom-bar {
+      margin-top: 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 9px 12px;
-      border-radius: 8px;
-      background: var(--surface-hover);
-      border: 1px solid var(--border);
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.8125rem;
+      padding: 12px 20px;
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-highlight);
+      border-radius: var(--radius-pill);
+      backdrop-filter: blur(28px);
+    }
+
+    .styleboard-caption {
       font-family: var(--font-mono);
-      transition: all var(--transition);
-      cursor: pointer;
+      font-size: 0.6875rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-dim);
     }
 
-    .contact-item:hover {
-      border-color: var(--border-hover);
-      color: var(--accent);
+    .bottom-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
-    .footer-note {
-      text-align: center;
-      margin-top: 32px;
+    .channel-link {
+      font-family: var(--font-mono);
       font-size: 0.8125rem;
       color: var(--text-muted);
-      font-family: var(--font-mono);
+      text-decoration: none;
+      transition: color var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: transparent;
+      border: none;
     }
 
-    .toast-msg {
+    .channel-link:hover {
+      color: var(--text-main);
+    }
+
+    .theme-switch-btn {
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .theme-switch-btn:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Toast Notification */
+    .toast-popup {
       position: fixed;
       bottom: 24px;
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border-hover);
-      padding: 10px 18px;
-      border-radius: 8px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--glass-surface);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-highlight);
+      color: var(--text-main);
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
       font-family: var(--font-mono);
       font-size: 0.8125rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
       opacity: 0;
-      transform: translateY(12px);
-      transition: all var(--transition);
       pointer-events: none;
-      z-index: 100;
+      transition: all var(--transition);
+      z-index: 1000;
     }
 
-    .toast-msg.visible {
+    .toast-popup.active {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateX(-50%) translateY(0);
     }
 
+    /* Responsive Layout */
     @media (max-width: 768px) {
-      .bento-grid {
+      .style-canvas {
         grid-template-columns: 1fr;
       }
-      .card-bio, .card-meta, .card-flagship, .card-stack, .card-contact {
-        grid-column: span 1;
-      }
-      .stack-columns {
+      .top-right-row {
         grid-template-columns: 1fr;
       }
-      h1 {
-        font-size: 1.75rem;
+      .bottom-left-row {
+        flex-direction: column;
+      }
+      .mini-lens-card {
+        width: 100%;
+        height: 60px;
+      }
+      .bottom-bar {
+        flex-direction: column;
+        gap: 12px;
+        border-radius: var(--radius-lg);
+        text-align: center;
       }
       body {
-        padding: 24px 14px;
+        padding: 20px 14px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="wrapper">
-    <main class="bento-grid">
+  <!-- Pinstripe Background Grid -->
+  <div class="pinstripe-bg" aria-hidden="true"></div>
 
-      <!-- Card 1: Identity & Bio -->
-      <section class="bento-card card-bio">
-        <div>
-          <div class="profile-badge">
-            <span class="status-dot"></span>
-            <span>Vitalii / Portfolio</span>
+  <div class="canvas-container">
+    <main class="style-canvas">
+
+      <!-- LEFT COLUMN -->
+      <div class="canvas-col">
+        <!-- Card 1: Planner / Profile -->
+        <article class="glass-card planner-card">
+          <div class="planner-header">
+            <h1 class="planner-title">Planner</h1>
+            <span class="planner-sup">(1)</span>
           </div>
-          <h1>Web Development &amp; Custom Python Automation</h1>
-        </div>
-        <p class="bio-text">
-          Independent developer building bespoke web experiences, tailored interfaces, and backend automation infrastructure. Focused on clean architecture, performance, and reliable delivery.
-        </p>
-      </section>
 
-      <!-- Card 2: Controls & Availability -->
-      <section class="bento-card card-meta">
-        <div class="theme-row">
-          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Theme</span>
-          <button id="themeToggleBtn" class="theme-btn" aria-label="Toggle theme">
-            <span id="themeLabel">Light</span>
-          </button>
-        </div>
-        <div class="meta-status-box">
-          <div class="meta-title">Available for projects</div>
-          <div class="meta-desc">Open for web engineering &amp; automation contracts.</div>
-        </div>
-      </section>
-
-      <!-- Card 3: Featured Flagship Project (Newhalo) -->
-      <section class="bento-card card-flagship">
-        <div>
-          <div class="flagship-header">
-            <div>
-              <div class="flagship-title">Newhalo</div>
-              <div style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-muted);">new-halo.com</div>
+          <div class="planner-items">
+            <!-- Row 1: Active Status -->
+            <div class="planner-row">
+              <div>
+                <div class="planner-row-title">Vitalii</div>
+                <div class="planner-row-sub">Web &amp; Python Automation</div>
+              </div>
+              <div class="icon-checked" title="Available">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
             </div>
-            <span class="flagship-tag">Flagship Project</span>
+
+            <!-- Row 2: Activities -->
+            <div class="planner-row">
+              <div>
+                <div class="planner-row-title">Frontend Engineering</div>
+                <div class="planner-row-sub">React / Semantic UI / High Performance</div>
+              </div>
+              <div class="icon-circle"></div>
+            </div>
+
+            <!-- Row 3: Backend Automation -->
+            <div class="planner-row">
+              <div>
+                <div class="planner-row-title">Python Automation</div>
+                <div class="planner-row-sub">Bespoke Scripts / APIs / Workflows</div>
+              </div>
+              <div class="icon-circle"></div>
+            </div>
+
+            <!-- Row 4: Studio -->
+            <div class="planner-row">
+              <div>
+                <div class="planner-row-title">Newhalo Studio</div>
+                <div class="planner-row-sub">Available for Select Projects</div>
+              </div>
+              <div class="icon-circle"></div>
+            </div>
           </div>
-          <p class="flagship-desc">
-            High-end web design and custom Python automation studio. Crafted for bespoke, high-performance web products, rapid static delivery, and specialized automated workflows.
+        </article>
+
+        <!-- Bottom Left: Lens + Clock -->
+        <div class="bottom-left-row">
+          <div class="mini-lens-card" title="Design System Material">
+            <div class="abstract-shape"></div>
+          </div>
+
+          <div class="glass-card clock-widget">
+            <div class="clock-dial-left">
+              <div class="dial-circle">
+                <div class="dial-center-dot"></div>
+              </div>
+              <span class="dial-sub">TIME</span>
+            </div>
+
+            <div class="clock-time-display">
+              <span id="clockHours">12</span><span class="clock-colon">:</span><span id="clockMinutes">00</span>
+              <span class="clock-period" id="clockPeriod">AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="canvas-col">
+
+        <!-- Top Right Row: Calendar + Wave Photo -->
+        <div class="top-right-row">
+          <!-- Calendar Tile -->
+          <article class="calendar-card">
+            <div class="calendar-header">
+              <div class="calendar-day" id="calDay">29</div>
+              <div class="calendar-month" id="calMonth">SEP</div>
+            </div>
+
+            <div class="activity-dot-grid" aria-hidden="true">
+              <span class="act-dot"></span><span class="act-dot"></span><span class="act-dot active-dim"></span><span class="act-dot"></span><span class="act-dot"></span><span class="act-dot"></span>
+              <span class="act-dot active-yellow"></span><span class="act-dot"></span><span class="act-dot"></span><span class="act-dot active-dim"></span><span class="act-dot"></span><span class="act-dot"></span>
+              <span class="act-dot"></span><span class="act-dot"></span><span class="act-dot active-yellow"></span><span class="act-dot"></span><span class="act-dot active-yellow"></span><span class="act-dot"></span>
+              <span class="act-dot active-dim"></span><span class="act-dot"></span><span class="act-dot"></span><span class="act-dot active-yellow"></span><span class="act-dot"></span><span class="act-dot"></span>
+            </div>
+          </article>
+
+          <!-- Wave Photo Card -->
+          <div class="photo-tile">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Ocean wave visual texture" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Flagship Project Card: Newhalo -->
+        <article class="glass-card flagship-card">
+          <div class="flagship-top">
+            <span class="pill-badge-yellow">Newhalo</span>
+            <span class="flagship-domain">new-halo.com</span>
+          </div>
+
+          <h2 class="flagship-name">High-End Web Design &amp; Custom Python Automation</h2>
+          <p class="flagship-description">
+            Bespoke digital studio building rapid, responsive web products and custom automation pipelines for modern businesses.
           </p>
-        </div>
 
-        <div class="flagship-footer">
-          <div class="tags-list">
-            <span class="tag-item">Web Architecture</span>
-            <span class="tag-item">Python Automation</span>
-            <span class="tag-item">Performance</span>
-            <span class="tag-item">Responsive Design</span>
-          </div>
-
-          <a href="https://new-halo.com/" target="_blank" rel="noopener noreferrer" class="external-link">
-            <span>Visit new-halo.com</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7"></path>
-              <path d="M7 7h10v10"></path>
-            </svg>
-          </a>
-        </div>
-      </section>
-
-      <!-- Card 4: Technical Focus -->
-      <section class="bento-card card-stack">
-        <div class="section-label">Technical Focus</div>
-        <div class="stack-columns">
-          <div>
-            <div class="stack-group-title">Frontend Engineering</div>
-            <div class="stack-group-desc">
-              Semantic HTML5, modern CSS3, responsive systems, React, client-side state, and performance optimization.
+          <div class="flagship-action-row">
+            <div class="stack-tags">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">Automation</span>
+              <span class="stack-tag">Performance</span>
             </div>
-          </div>
-          <div>
-            <div class="stack-group-title">Backend &amp; Automation</div>
-            <div class="stack-group-desc">
-              Custom Python scripts, asynchronous event loops, external API integrations, data processing, and deployment workflows.
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Card 5: Direct Channels -->
-      <section class="bento-card card-contact">
-        <div class="section-label">Connect</div>
-        <div class="contacts-list">
-          <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="contact-item">
-            <span>GitHub</span>
-            <span style="color: var(--text-muted);">&nearr;</span>
-          </a>
-          <a href="https://t.me/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="contact-item">
-            <span>Telegram</span>
-            <span style="color: var(--text-muted);">&nearr;</span>
-          </a>
-          <div id="copyEmailTrigger" class="contact-item" title="Click to copy email address">
-            <span>Email</span>
-            <span style="color: var(--text-muted);">Copy</span>
+            <a href="https://new-halo.com/" target="_blank" rel="noopener noreferrer" class="launch-btn">
+              <span>Visit Site</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
           </div>
-        </div>
-      </section>
+        </article>
+
+      </div>
 
     </main>
 
-    <footer class="footer-note">
-      vitaliinewhalo.github.io &middot; Hosted on GitHub Pages
-    </footer>
+    <!-- Bottom Capsule Bar: Navigation & Style Board Caption -->
+    <nav class="bottom-bar" aria-label="Quick links and controls">
+      <span class="styleboard-caption">STYLE BOARD &middot; VITALII</span>
+
+      <div class="bottom-links">
+        <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="channel-link">
+          <span>GitHub</span>
+        </a>
+        <a href="https://t.me/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="channel-link">
+          <span>Telegram</span>
+        </a>
+        <button id="copyBtn" class="channel-link" title="Copy Email">
+          <span>Email</span>
+        </button>
+        <button id="themeToggle" class="theme-switch-btn" title="Toggle Theme">
+          <span id="themeText">Theme</span>
+        </button>
+      </div>
+    </nav>
   </div>
 
-  <div id="toast" class="toast-msg" role="status" aria-live="polite">
+  <!-- Toast Notice -->
+  <div id="toast" class="toast-popup" role="status" aria-live="polite">
     vitaliinewhalo@gmail.com copied to clipboard
   </div>
 
   <script>
     (function() {
-      // Theme Toggle Logic
-      const root = document.documentElement;
-      const themeBtn = document.getElementById('themeToggleBtn');
-      const themeLabel = document.getElementById('themeLabel');
+      // 1. Live Digital Dot Clock
+      const hoursEl = document.getElementById('clockHours');
+      const minEl = document.getElementById('clockMinutes');
+      const periodEl = document.getElementById('clockPeriod');
 
-      function setTheme(theme) {
+      function updateClock() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const isPM = hours >= 12;
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minEl) minEl.textContent = minutes;
+        if (periodEl) periodEl.textContent = isPM ? 'PM' : 'AM';
+      }
+      updateClock();
+      setInterval(updateClock, 1000);
+
+      // 2. Dynamic Calendar Date
+      const dayEl = document.getElementById('calDay');
+      const monthEl = document.getElementById('calMonth');
+      const now = new Date();
+      if (dayEl) dayEl.textContent = now.getDate();
+      const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      if (monthEl) monthEl.textContent = months[now.getMonth()];
+
+      // 3. Theme Switcher with LocalStorage
+      const root = document.documentElement;
+      const themeBtn = document.getElementById('themeToggle');
+      const themeText = document.getElementById('themeText');
+
+      function applyTheme(theme) {
         root.setAttribute('data-theme', theme);
-        localStorage.setItem('vh_theme', theme);
-        if (themeLabel) {
-          themeLabel.textContent = theme === 'dark' ? 'Light' : 'Dark';
+        localStorage.setItem('v_theme', theme);
+        if (themeText) {
+          themeText.textContent = theme === 'dark' ? 'Light' : 'Dark';
         }
       }
 
-      const savedTheme = localStorage.getItem('vh_theme') || 'dark';
-      setTheme(savedTheme);
+      const saved = localStorage.getItem('v_theme') || 'dark';
+      applyTheme(saved);
 
       if (themeBtn) {
         themeBtn.addEventListener('click', () => {
           const current = root.getAttribute('data-theme') || 'dark';
-          const next = current === 'dark' ? 'light' : 'dark';
-          setTheme(next);
+          applyTheme(current === 'dark' ? 'light' : 'dark');
         });
       }
 
-      // Copy Email Toast
-      const copyBtn = document.getElementById('copyEmailTrigger');
+      // 4. Copy Email Trigger & Toast
+      const copyBtn = document.getElementById('copyBtn');
       const toast = document.getElementById('toast');
       let toastTimer = null;
 
@@ -528,12 +848,12 @@
           navigator.clipboard.writeText(email).then(() => {
             showToast();
           }).catch(() => {
-            const el = document.createElement('textarea');
-            el.value = email;
-            document.body.appendChild(el);
-            el.select();
+            const temp = document.createElement('textarea');
+            temp.value = email;
+            document.body.appendChild(temp);
+            temp.select();
             document.execCommand('copy');
-            document.body.removeChild(el);
+            document.body.removeChild(temp);
             showToast();
           });
         });
@@ -541,10 +861,10 @@
 
       function showToast() {
         if (!toast) return;
-        toast.classList.add('visible');
+        toast.classList.add('active');
         clearTimeout(toastTimer);
         toastTimer = setTimeout(() => {
-          toast.classList.remove('visible');
+          toast.classList.remove('active');
         }, 2200);
       }
     })();
