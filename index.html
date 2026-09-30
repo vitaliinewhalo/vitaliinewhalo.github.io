@@ -1,60 +1,61 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vitalii // Web &amp; Automation Developer (Nothing OS Edition)</title>
-  <meta name="description" content="Portfolio of Vitalii. Full-stack web development and Python automation. Featuring Newhalo.">
+  <title>Vitalii // Software Architect &amp; Systems Engineer</title>
+  <meta name="description" content="Portfolio of Vitalii Nychkalo. Software Architect &amp; Systems Engineer. Founder of Newhalo. High-performance web architecture &amp; native Rust desktop software.">
   <link rel="canonical" href="https://vitaliinewhalo.github.io/">
 
-  <!-- Google Fonts: Doto (Authentic Nothing NDot matrix) & Space Grotesk -->
+  <!-- Google Fonts: Space Mono & Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Doto:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --font-ndot: 'Doto', monospace;
+      --font-mono: 'Space Mono', monospace;
+      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
 
-      /* Nothing OS Signature Palette */
-      --bg: #050505;
-      --surface: #101114;
-      --surface-hover: #16171d;
-      --surface-card: #0d0e12;
-      --border: #22242c;
-      --border-bright: #383c48;
+      /* Dark Theme (Frosted Matte Glass Palette) */
+      --bg: #07080a;
+      --surface-card: rgba(13, 15, 20, 0.62);
+      --surface-hover: rgba(22, 26, 35, 0.82);
+      --surface-inner: rgba(0, 0, 0, 0.35);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-bright: rgba(255, 255, 255, 0.22);
       
       --text-primary: #ffffff;
-      --text-secondary: #9094a6;
-      --text-dim: #505464;
+      --text-secondary: #9aa1b3;
+      --text-dim: #545b6f;
 
-      /* The Iconic Nothing Red */
-      --nothing-red: #d71921;
-      --nothing-red-glow: rgba(215, 25, 33, 0.4);
+      --signal-red: #ff333d;
+      --signal-green: #00e599;
 
-      --radius-sm: 10px;
-      --radius-md: 18px;
-      --radius-lg: 26px;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 22px;
       --radius-pill: 9999px;
-      --transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    [data-theme="light"] {
-      --bg: #f2f2f0;
-      --surface: #ffffff;
-      --surface-hover: #f8f8f7;
-      --surface-card: #fafaf9;
-      --border: #dcdcd8;
-      --border-bright: #b8b8b0;
+    /* Light Theme (Frosted Architectural Paper) */
+    html[data-theme="light"],
+    body[data-theme="light"] {
+      --bg: #f3f3f0;
+      --surface-card: rgba(255, 255, 255, 0.75);
+      --surface-hover: rgba(255, 255, 255, 0.92);
+      --surface-inner: rgba(0, 0, 0, 0.03);
+      --border: rgba(0, 0, 0, 0.08);
+      --border-bright: rgba(0, 0, 0, 0.18);
 
-      --text-primary: #0a0a0c;
-      --text-secondary: #585c6a;
-      --text-dim: #9498a6;
+      --text-primary: #0a0b0e;
+      --text-secondary: #4e5362;
+      --text-dim: #848998;
 
-      --nothing-red: #d71921;
-      --nothing-red-glow: rgba(215, 25, 33, 0.25);
+      --signal-red: #d91c26;
+      --signal-green: #00995e;
     }
 
     *, *::before, *::after {
@@ -80,26 +81,140 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Nothing OS Micro-Grid Background */
-    .nothing-grid-bg {
+    /* Ambient Atmospheric Glow: One-shot Cinematic Emergence, then Permanently Locked */
+    .ambient-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(115px);
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    /* Blue Orb (Ukrainian Sapphire / Depth) - One-Shot Entry */
+    .glow-blue {
+      width: 650px;
+      height: 650px;
+      top: -120px;
+      left: -100px;
+      background: radial-gradient(circle, rgba(0, 102, 204, 0.34) 0%, rgba(0, 70, 160, 0.14) 50%, transparent 72%);
+      animation: emergeBlue 2.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+    }
+
+    /* Amber Orb (Warm Accent) - One-Shot Entry */
+    .glow-amber {
+      width: 580px;
+      height: 580px;
+      top: 80px;
+      right: -80px;
+      background: radial-gradient(circle, rgba(255, 190, 0, 0.17) 0%, rgba(220, 140, 0, 0.06) 50%, transparent 72%);
+      animation: emergeAmber 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+    }
+
+    /* Sub-surface Base Glow - One-Shot Entry */
+    .glow-accent {
+      width: 720px;
+      height: 380px;
+      bottom: -140px;
+      left: 15%;
+      background: radial-gradient(ellipse, rgba(0, 102, 204, 0.14) 0%, rgba(255, 51, 61, 0.08) 50%, transparent 75%);
+      animation: emergeAccent 2.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+    }
+
+    @keyframes emergeBlue {
+      0% {
+        opacity: 0;
+        transform: translate(-60px, -50px) scale(0.75);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    @keyframes emergeAmber {
+      0% {
+        opacity: 0;
+        transform: translate(60px, -40px) scale(0.75);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    @keyframes emergeAccent {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    [data-theme="light"] .glow-blue {
+      background: radial-gradient(circle, rgba(0, 102, 204, 0.12) 0%, transparent 70%);
+    }
+    [data-theme="light"] .glow-amber {
+      background: radial-gradient(circle, rgba(255, 190, 0, 0.09) 0%, transparent 70%);
+    }
+    [data-theme="light"] .glow-accent {
+      background: radial-gradient(ellipse, rgba(0, 102, 204, 0.08) 0%, transparent 70%);
+    }
+
+    /* Technical Micro-Grid Background */
+    .grid-bg {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
       background-image: 
         radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 0);
-      background-size: 32px 32px;
-      opacity: 0.7;
+      background-size: 28px 28px;
+      opacity: 0;
+      transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+    }
+
+    body.ready .grid-bg {
+      opacity: 0.85;
     }
 
     .canvas {
       width: 100%;
-      max-width: 900px;
+      max-width: 960px;
       position: relative;
       z-index: 1;
     }
 
-    /* Top Status Bar (Nothing OS Header) */
+    /* Ukrainian Flag Badge (Aligned with Gebeto) */
+    .ua-flag {
+      display: inline-block;
+      width: 28px;
+      height: 16px;
+      box-sizing: border-box;
+      background: linear-gradient(to bottom, #0066cc 50%, #ffcc00 50%);
+      border-radius: 2px;
+      vertical-align: -3px;
+      margin-right: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      animation: flagAppear 1.8s ease-in-out;
+    }
+
+    @keyframes flagAppear {
+      from { opacity: 0; transform: translateX(-4px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Top Status Bar - Clean Floating Text, NOT A CARD */
     .top-status-bar {
       display: flex;
       align-items: center;
@@ -109,37 +224,26 @@
       font-family: var(--font-mono);
       font-size: 0.75rem;
       color: var(--text-dim);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      opacity: 0;
+      transform: translateY(-12px);
+      transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body.ready .top-status-bar {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 180ms;
     }
 
     .top-status-left {
       display: flex;
       align-items: center;
-      gap: 12px;
-    }
-
-    .rec-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--nothing-red);
-      font-weight: 600;
-    }
-
-    .red-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--nothing-red);
-      box-shadow: 0 0 10px var(--nothing-red-glow);
-      animation: pulse-red 2s infinite ease-out;
-    }
-
-    @keyframes pulse-red {
-      0% { transform: scale(0.95); opacity: 0.9; }
-      50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 14px var(--nothing-red); }
-      100% { transform: scale(0.95); opacity: 0.9; }
+      gap: 4px;
     }
 
     /* Bento Grid */
@@ -149,6 +253,7 @@
       gap: 16px;
     }
 
+    /* Matte Frosted Glass Card */
     .card {
       background: var(--surface-card);
       border: 1px solid var(--border);
@@ -158,93 +263,152 @@
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      transition: all var(--transition);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.06),
+        0 8px 32px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      transition: 
+        transform 1.25s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.22s ease 0s,
+        background-color 0.22s ease 0s,
+        box-shadow 0.22s ease 0s;
+      will-change: opacity, transform, border-color, background-color, box-shadow;
     }
 
+    /* Pure In-Place Inner Highlight & Soft Sheen (Zero Movement) */
     .card:hover {
       border-color: var(--border-bright);
-      background: var(--surface-hover);
+      background-color: var(--surface-hover);
+      box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.14),
+        0 12px 40px rgba(0, 0, 0, 0.35);
+      transition-delay: 0s !important;
+      transition-duration: 0.22s !important;
     }
 
-    /* Corner Alignment Crosshairs [+] */
     .crosshair-tl {
       position: absolute;
-      top: 10px;
-      right: 12px;
+      top: 26px;
+      right: 26px;
       font-family: var(--font-mono);
       font-size: 0.6875rem;
+      line-height: 1.4;
       color: var(--text-dim);
       user-select: none;
+      letter-spacing: 0.05em;
+      pointer-events: none;
+      transition: color 0.22s ease 0s;
     }
 
-    /* Card 1: Identity & Bio */
+    .card:hover .crosshair-tl {
+      color: var(--text-secondary);
+    }
+
+    .card-flagship .crosshair-tl {
+      top: 32px;
+      right: 32px;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    /* Card 1: Identity & Bio (Span 2) */
     .card-profile {
       grid-column: span 2;
+      transform: translate(-18px, 10px);
     }
 
-    .ndot-tag {
-      font-family: var(--font-ndot);
-      font-size: 0.875rem;
-      letter-spacing: 0.15em;
-      color: var(--nothing-red);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      display: inline-block;
+    body.ready .card-profile {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 360ms, opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1) 360ms, border-color 0.22s ease 0s, background-color 0.22s ease 0s, box-shadow 0.22s ease 0s;
     }
 
     .profile-name {
-      font-family: var(--font-ndot);
-      font-size: clamp(2rem, 4.5vw, 2.75rem);
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      line-height: 1.1;
+      font-family: var(--font-display);
+      font-size: 1.625rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
       margin-bottom: 14px;
-      text-transform: uppercase;
+    }
+
+    .profile-name .accent-slash {
+      color: var(--signal-red);
+      font-family: var(--font-mono);
+      font-weight: 400;
     }
 
     .profile-desc {
       font-size: 0.9375rem;
       color: var(--text-secondary);
-      line-height: 1.6;
-      max-width: 500px;
-      margin-top: auto;
+      line-height: 1.65;
+      margin-bottom: 18px;
     }
 
-    /* Card 2: Digital Clock Widget */
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag-badge {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-inner);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+    }
+
+    /* Card 2: Realtime Clock & Telemetry (Span 1) */
     .card-clock {
       grid-column: span 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transform: translate(18px, -8px);
     }
 
-    .clock-widget-label {
+    body.ready .card-clock {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 480ms, opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1) 480ms, border-color 0.22s ease 0s, background-color 0.22s ease 0s, box-shadow 0.22s ease 0s;
+    }
+
+    .clock-time {
       font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-    }
-
-    .nothing-clock {
-      font-family: var(--font-ndot);
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       line-height: 1;
-      margin: 16px 0;
+      margin: 18px 0;
       display: flex;
       align-items: baseline;
       justify-content: center;
+      color: var(--text-primary);
     }
 
-    .colon {
+    .clock-colon {
       animation: blink 1s infinite steps(1);
-      color: var(--nothing-red);
+      color: var(--signal-red);
     }
 
     @keyframes blink {
-      50% { opacity: 0.2; }
+      50% { opacity: 0.15; }
     }
 
     .clock-footer-spec {
@@ -258,15 +422,22 @@
       border-top: 1px solid var(--border);
     }
 
-    /* Card 3: Flagship NEWHALO Showcase (Full Width) */
+    /* Card 3: Flagship NEWHALO Showcase (Full 3 Cols) */
     .card-flagship {
       grid-column: span 3;
-      padding: 30px;
+      padding: 32px;
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
+      gap: 28px;
       align-items: center;
       position: relative;
+      transform: scale(0.97) translateY(16px);
+    }
+
+    body.ready .card-flagship {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 620ms, opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1) 620ms, border-color 0.22s ease 0s, background-color 0.22s ease 0s, box-shadow 0.22s ease 0s;
     }
 
     .flagship-brand-header {
@@ -277,8 +448,8 @@
     }
 
     .newhalo-logo-img {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: 8px;
       border: 1px solid var(--border);
       background: #ffffff;
@@ -286,31 +457,19 @@
     }
 
     .newhalo-wordmark {
-      font-family: var(--font-sans);
+      font-family: var(--font-display);
       font-size: 1.375rem;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: -0.03em;
     }
 
-    .flagship-badge {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: var(--radius-pill);
-      background: rgba(215, 25, 33, 0.12);
-      color: var(--nothing-red);
-      border: 1px solid rgba(215, 25, 33, 0.3);
-    }
-
     .flagship-heading {
-      font-family: var(--font-ndot);
-      font-size: 1.625rem;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.02em;
       margin-bottom: 10px;
-      text-transform: uppercase;
+      line-height: 1.3;
     }
 
     .flagship-text {
@@ -323,18 +482,18 @@
     .tech-specs-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
+      gap: 8px;
+      margin-bottom: 22px;
     }
 
     .spec-pill {
       font-family: var(--font-mono);
       font-size: 0.6875rem;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      padding: 3px 9px;
+      padding: 4px 10px;
       border-radius: 6px;
-      background: var(--surface);
+      background: var(--surface-inner);
       border: 1px solid var(--border);
       color: var(--text-secondary);
     }
@@ -349,7 +508,7 @@
       font-family: var(--font-mono);
       font-size: 0.8125rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       border-radius: var(--radius-pill);
       text-decoration: none;
@@ -358,20 +517,19 @@
 
     .launch-link-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-      background: #ffffff;
-      color: #000000;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      background: var(--signal-red);
+      color: #ffffff;
     }
 
-    /* Hardware Viewport Screen for Preview */
     .preview-viewport {
       position: relative;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       overflow: hidden;
       background: #000000;
-      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
-      max-height: 240px;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+      max-height: 250px;
     }
 
     .preview-viewport img {
@@ -379,7 +537,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: contrast(1.08) brightness(0.95);
+      filter: contrast(1.02);
       transition: transform 0.4s ease;
     }
 
@@ -387,251 +545,278 @@
       transform: scale(1.03);
     }
 
-    .viewport-overlay {
-      position: absolute;
-      bottom: 8px;
-      right: 10px;
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      background: rgba(0, 0, 0, 0.7);
-      color: #ffffff;
-      padding: 2px 8px;
-      border-radius: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
+    /* Card 4: Native Systems & Desktop Software (Rust / Steam) (Span 2) */
+    .card-systems {
+      grid-column: span 2;
+      transform: translate(-16px, 12px);
     }
 
-    /* Card 4: Hardware Specs / Tech Focus */
+    body.ready .card-systems {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 780ms, opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1) 780ms, border-color 0.22s ease 0s, background-color 0.22s ease 0s, box-shadow 0.22s ease 0s;
+    }
+
+    .systems-header {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .systems-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .terminal-box {
+      background: var(--surface-inner);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .term-line {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--border);
+      padding: 4px 0;
+    }
+
+    .term-line:last-child {
+      border-bottom: none;
+    }
+
+    .term-key {
+      color: var(--text-dim);
+    }
+
+    .term-val {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .term-val.highlight {
+      color: var(--signal-red);
+    }
+
+    /* Card 5: Core Technical Architecture / Disciplines (Span 1) */
     .card-specs {
-      grid-column: span 2;
+      grid-column: span 1;
+      transform: translate(18px, 12px);
+    }
+
+    body.ready .card-specs {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 920ms, opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1) 920ms, border-color 0.22s ease 0s, background-color 0.22s ease 0s, box-shadow 0.22s ease 0s;
     }
 
     .specs-header {
-      font-family: var(--font-ndot);
+      font-family: var(--font-display);
       font-size: 1.125rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
     }
 
-    .specs-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+    .discipline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
-    .spec-box-title {
+    .discipline-item {
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .discipline-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .disp-title {
       font-family: var(--font-mono);
       font-size: 0.8125rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 4px;
     }
 
-    .spec-box-desc {
+    .disp-desc {
       font-size: 0.8125rem;
       color: var(--text-secondary);
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
-    /* Card 5: Tape Reel / Audio Loop Widget (Nothing Style) */
-    .card-reel {
-      grid-column: span 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .reel-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin: 10px 0;
-    }
-
-    .cassette-spool {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 2px dashed var(--border-bright);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: rotate-spool 8s linear infinite;
-    }
-
-    @keyframes rotate-spool {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .spool-center {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--nothing-red);
-    }
-
-    .reel-caption {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      text-align: center;
-    }
-
-    /* Bottom Nothing OS Quick Toggles Bar */
+    /* Bottom Quick Action Dock (Enclosed Pill Bar) */
     .quick-toggles-bar {
       margin-top: 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 18px;
+      padding: 12px 20px;
       background: var(--surface-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-pill);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 6px 24px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body.ready .quick-toggles-bar {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 1060ms;
     }
 
     .brand-subline {
-      font-family: var(--font-ndot);
-      font-size: 0.8125rem;
-      letter-spacing: 0.15em;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
       color: var(--text-dim);
+      text-transform: uppercase;
     }
 
     .toggle-pills {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .pill-btn {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
-      padding: 6px 14px;
       font-family: var(--font-mono);
       font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 7px 18px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-inner);
+      border: 1px solid var(--border);
       color: var(--text-primary);
       text-decoration: none;
       cursor: pointer;
+      transition: all var(--transition);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: all var(--transition);
+      justify-content: center;
+      user-select: none;
     }
 
     .pill-btn:hover {
       border-color: var(--border-bright);
       background: var(--surface-hover);
-    }
-
-    .pill-btn.btn-red {
-      color: var(--nothing-red);
-    }
-
-    /* Toast Notification */
-    .toast-box {
-      position: fixed;
-      bottom: 24px;
-      background: #000000;
-      color: #ffffff;
-      border: 1px solid var(--border-bright);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      padding: 10px 18px;
-      border-radius: var(--radius-pill);
-      opacity: 0;
-      transform: translateY(12px);
-      transition: all var(--transition);
-      pointer-events: none;
-      z-index: 1000;
-    }
-
-    .toast-box.show {
-      opacity: 1;
-      transform: translateY(0);
+      transform: translateY(-1px);
     }
 
     /* Mobile Responsive */
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
+      body {
+        padding: 24px 14px;
+      }
       .bento {
         grid-template-columns: 1fr;
       }
-      .card-profile, .card-clock, .card-flagship, .card-specs, .card-reel {
+      .card-profile,
+      .card-clock,
+      .card-flagship,
+      .card-systems,
+      .card-specs {
         grid-column: span 1;
       }
       .card-flagship {
         grid-template-columns: 1fr;
+        padding: 22px;
       }
-      .specs-grid {
-        grid-template-columns: 1fr;
+      .preview-viewport {
+        max-height: 200px;
       }
       .quick-toggles-bar {
         flex-direction: column;
-        gap: 12px;
+        gap: 14px;
         border-radius: var(--radius-lg);
       }
       .toggle-pills {
-        flex-wrap: wrap;
+        width: 100%;
         justify-content: center;
-      }
-      body {
-        padding: 24px 14px;
+        flex-wrap: wrap;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Nothing OS Micro-Grid Background -->
-  <div class="nothing-grid-bg" aria-hidden="true"></div>
+  <!-- Ambient Atmospheric Glows -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-orb glow-blue"></div>
+    <div class="glow-orb glow-amber"></div>
+    <div class="glow-orb glow-accent"></div>
+  </div>
+
+  <!-- Technical Grid Background Overlay -->
+  <div class="grid-bg" aria-hidden="true"></div>
 
   <div class="canvas">
 
-    <!-- Top Status Bar -->
+    <!-- Top Status Bar: Pure floating text, no background box -->
     <header class="top-status-bar">
       <div class="top-status-left">
-        <span class="rec-indicator"><span class="red-dot"></span> LIVE</span>
-        <span>SYS.ONLINE // VITALII</span>
+        <span class="ua-flag" title="Ukraine"></span>
+        <span>// VITALII NYCHKALO</span>
       </div>
-      <div>COPENHAGEN // UKRAINE</div>
+      <div>COPENHAGEN // SOFTWARE ARCHITECT</div>
     </header>
 
-    <!-- Main Nothing OS Bento Canvas -->
+    <!-- Main Bento Grid Canvas -->
     <main class="bento">
 
-      <!-- Widget 1: Developer Profile & Statement -->
+      <!-- Widget 1: Profile & Identity (Span 2) -->
       <article class="card card-profile">
         <span class="crosshair-tl">[ + ]</span>
         <div>
-          <span class="ndot-tag">( PROFILE.01 )</span>
-          <h1 class="profile-name">Vitalii // Full-Stack &amp; Python</h1>
+          <span class="section-tag">[ 01 // IDENTITY ]</span>
+          <h1 class="profile-name">
+            Vitalii Nychkalo <span class="accent-slash">//</span> Software Architect &amp; Systems Engineer
+          </h1>
         </div>
         <p class="profile-desc">
-          Independent developer building bespoke high-performance web products, rapid frontends, and custom Python automation infrastructure.
+          Engineering high-performance web products, scalable digital architectures, and low-level native software. Leading technical execution at Newhalo and crafting native desktop software in Rust.
         </p>
+        <div class="profile-tags">
+          <span class="tag-badge">FULL-STACK ARCHITECTURE</span>
+          <span class="tag-badge">NATIVE SYSTEMS (RUST)</span>
+          <span class="tag-badge">BOUTIQUE COLLECTIVE</span>
+        </div>
       </article>
 
-      <!-- Widget 2: Signature Nothing OS Dot-Matrix Clock -->
+      <!-- Widget 2: Live Space Mono Clock & Telemetry (Span 1) -->
       <article class="card card-clock">
         <span class="crosshair-tl">[ TIME ]</span>
-        <div class="clock-widget-label">SYS_CLOCK // 24H</div>
+        <span class="section-tag">[ SYS_CLOCK // 24H ]</span>
 
-        <div class="nothing-clock">
-          <span id="nothingHours">12</span><span class="colon">:</span><span id="nothingMinutes">00</span>
+        <div class="clock-time">
+          <span id="hoursEl">12</span><span class="clock-colon">:</span><span id="minEl">00</span><span class="clock-colon">:</span><span id="secEl" style="font-size: 1.5rem; opacity: 0.75; margin-left: 2px;">00</span>
         </div>
 
         <div class="clock-footer-spec">
-          <span id="nothingDate">29 SEP 2026</span>
-          <span style="color: var(--nothing-red); font-weight: 700;">100% OK</span>
+          <span id="dateEl">30 SEP 2026</span>
+          <span style="color: var(--signal-green); font-weight: 700;">100% OK</span>
         </div>
       </article>
 
-      <!-- Widget 3: Flagship Project NEWHALO (Featuring Logo + Real Preview) -->
+      <!-- Widget 3: Flagship Project NEWHALO (Span 3 - Full Row) -->
       <article class="card card-flagship">
         <span class="crosshair-tl">[ 01.FLAGSHIP ]</span>
 
@@ -640,18 +825,17 @@
           <div class="flagship-brand-header">
             <img src="newhalo-logo.svg" alt="Newhalo logo" class="newhalo-logo-img">
             <span class="newhalo-wordmark">Newhalo.</span>
-            <span class="flagship-badge">FLAGSHIP STUDIO</span>
           </div>
 
-          <h2 class="flagship-heading">High-End Web Design &amp; Python Automation</h2>
+          <h2 class="flagship-heading">Bespoke Web Platforms &amp; Software Craftsmanship</h2>
           <p class="flagship-text">
-            Bespoke digital agency platform building rapid, responsive web products, tailored digital solutions, and custom Python automated pipelines.
+            Boutique digital collective crafting bespoke web platforms, high-speed applications, and resilient cloud infrastructures rooted in Danish design principles.
           </p>
 
           <div class="tech-specs-row">
-            <span class="spec-pill">REACT 18</span>
-            <span class="spec-pill">PYTHON 3.12</span>
-            <span class="spec-pill">AUTOMATION</span>
+            <span class="spec-pill">REACT ARCHITECTURE</span>
+            <span class="spec-pill">PHP &amp; LARAVEL</span>
+            <span class="spec-pill">CLOUD INFRASTRUCTURE</span>
             <span class="spec-pill">HIGH PERFORMANCE</span>
           </div>
 
@@ -664,65 +848,92 @@
           </a>
         </div>
 
-        <!-- Right: Hardware Screen Viewport with Real Image Preview -->
+        <!-- Right: Real Hardware Screen Viewport -->
         <div class="preview-viewport">
-          <img src="newhalo-preview.png" alt="Newhalo studio work preview" loading="lazy">
-          <div class="viewport-overlay">new-halo.com // LIVE</div>
+          <img src="newhalo-preview.webp" alt="Newhalo Studio Design System Preview" loading="lazy">
         </div>
       </article>
 
-      <!-- Widget 4: Core Technical Architecture -->
+      <!-- Widget 4: Native Systems & Desktop Software (Rust & Steam) (Span 2) -->
+      <article class="card card-systems">
+        <span class="crosshair-tl">[ 02.SYSTEMS ]</span>
+        <div>
+          <span class="section-tag">[ NATIVE SOFTWARE // STEAM ]</span>
+          <h3 class="systems-header">Windows Native Application (Rust)</h3>
+          <p class="systems-desc">
+            Performance-critical desktop software built for Windows from scratch in Rust. Focused on memory safety, zero garbage collection pauses, low-level OS API bindings, and native binary efficiency.
+          </p>
+        </div>
+
+        <div class="terminal-box">
+          <div class="term-line">
+            <span class="term-key">LANGUAGE_CORE</span>
+            <span class="term-val">RUST (STABLE)</span>
+          </div>
+          <div class="term-line">
+            <span class="term-key">TARGET_OS</span>
+            <span class="term-val">WINDOWS (X86_64)</span>
+          </div>
+          <div class="term-line">
+            <span class="term-key">MEMORY_MODEL</span>
+            <span class="term-val highlight">ZERO-GC // BORROW CHECKED</span>
+          </div>
+          <div class="term-line">
+            <span class="term-key">DISTRIBUTION</span>
+            <span class="term-val">UPCOMING STEAM RELEASE</span>
+          </div>
+        </div>
+
+        <div class="profile-tags">
+          <span class="tag-badge">RUST</span>
+          <span class="tag-badge">WIN32 / DESKTOP</span>
+          <span class="tag-badge">STEAM</span>
+          <span class="tag-badge">HIGH PERFORMANCE</span>
+        </div>
+      </article>
+
+      <!-- Widget 5: Technical Disciplines / Core Stack (Span 1) -->
       <article class="card card-specs">
-        <span class="crosshair-tl">[ STACK.SYS ]</span>
+        <span class="crosshair-tl">[ 03.STACK ]</span>
+        <span class="section-tag">[ CORE DISCIPLINES ]</span>
         <h3 class="specs-header">Technical Focus</h3>
 
-        <div class="specs-grid">
-          <div>
-            <div class="spec-box-title">Frontend Engineering</div>
-            <div class="spec-box-desc">
-              Modern React architecture, semantic HTML5, zero-bloat CSS, responsive layout engines, and sub-second load times.
+        <div class="discipline-list">
+          <div class="discipline-item">
+            <div class="disp-title">Web &amp; UI Architecture</div>
+            <div class="disp-desc">
+              Custom React architectures, state orchestration, sub-second TTFB, and fluid UI systems.
             </div>
           </div>
-          <div>
-            <div class="spec-box-title">Python Automation</div>
-            <div class="spec-box-desc">
-              Custom scrapers, event-driven async bots, REST API pipelines, background task processing, and automated cloud workflows.
+          <div class="discipline-item">
+            <div class="disp-title">Backend &amp; Scalable APIs</div>
+            <div class="disp-desc">
+              PHP &amp; Laravel architectures, relational databases, secure API layers, and cloud hosting.
+            </div>
+          </div>
+          <div class="discipline-item">
+            <div class="disp-title">Systems &amp; Low-Level</div>
+            <div class="disp-desc">
+              Rust native development, multi-threading, concurrency, and hardware-close memory control.
             </div>
           </div>
         </div>
-      </article>
-
-      <!-- Widget 5: Tape Reel / Continuous Automation Loop -->
-      <article class="card card-reel">
-        <span class="crosshair-tl">[ LOOP ]</span>
-        <div class="clock-widget-label">AUTOMATION ENGINE</div>
-
-        <div class="reel-visual" aria-hidden="true">
-          <div class="cassette-spool"><div class="spool-center"></div></div>
-          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">&bull; &bull; &bull;</div>
-          <div class="cassette-spool"><div class="spool-center"></div></div>
-        </div>
-
-        <div class="reel-caption">CONTINUOUS PIPELINE ACTIVE</div>
       </article>
 
     </main>
 
-    <!-- Bottom Nothing OS Quick Toggles Bar -->
+    <!-- Bottom Quick Action Dock -->
     <nav class="quick-toggles-bar" aria-label="Control toggles and channels">
-      <span class="brand-subline">NOTHING OS // VITALII</span>
+      <span class="brand-subline">VITALII NYCHKALO // 2026</span>
 
       <div class="toggle-pills">
         <a href="https://github.com/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="pill-btn">
           <span>GITHUB</span>
         </a>
-        <a href="https://t.me/vitaliinewhalo" target="_blank" rel="noopener noreferrer" class="pill-btn">
-          <span>TELEGRAM</span>
+        <a href="https://www.linkedin.com/in/vitalii-newhalo" target="_blank" rel="noopener noreferrer" class="pill-btn">
+          <span>LINKEDIN</span>
         </a>
-        <button id="copyEmailBtn" class="pill-btn btn-red" title="Copy vitaliinewhalo@gmail.com">
-          <span>EMAIL</span>
-        </button>
-        <button id="themeToggleBtn" class="pill-btn" title="Toggle Light/Dark Theme">
+        <button id="themeToggleBtn" type="button" class="pill-btn" title="Toggle Light/Dark Theme">
           <span id="themeLabel">LIGHT</span>
         </button>
       </div>
@@ -730,87 +941,77 @@
 
   </div>
 
-  <!-- Toast Element -->
-  <div id="toastBox" class="toast-box" role="status" aria-live="polite">
-    VITALIINEWHALO@GMAIL.COM COPIED TO CLIPBOARD
-  </div>
-
   <script>
-    (function() {
-      // 1. Live Nothing OS Dot-Matrix Clock
-      const hoursEl = document.getElementById('nothingHours');
-      const minEl = document.getElementById('nothingMinutes');
-      const dateEl = document.getElementById('nothingDate');
+    // 0. Trigger Gebeto-Style Emergence
+    window.addEventListener('DOMContentLoaded', function() {
+      requestAnimationFrame(function() {
+        setTimeout(function() {
+          document.body.classList.add('ready');
+        }, 60);
+      });
+    });
+    // Fallback if already loaded
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(function() {
+        document.body.classList.add('ready');
+      }, 60);
+    }
 
-      function updateClock() {
-        const now = new Date();
-        const h = String(now.getHours()).padStart(2, '0');
-        const m = String(now.getMinutes()).padStart(2, '0');
-        if (hoursEl) hoursEl.textContent = h;
-        if (minEl) minEl.textContent = m;
+    // 1. Live Space Mono Digital Clock (HH:MM:SS)
+    function updateClock() {
+      const hoursEl = document.getElementById('hoursEl');
+      const minEl = document.getElementById('minEl');
+      const secEl = document.getElementById('secEl');
+      const dateEl = document.getElementById('dateEl');
 
-        if (dateEl) {
-          const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-          dateEl.textContent = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
-        }
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      
+      if (hoursEl) hoursEl.textContent = h;
+      if (minEl) minEl.textContent = m;
+      if (secEl) secEl.textContent = s;
+
+      if (dateEl) {
+        const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+        dateEl.textContent = now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
       }
-      updateClock();
-      setInterval(updateClock, 1000);
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
 
-      // 2. Nothing OS Theme Switcher
-      const root = document.documentElement;
-      const themeBtn = document.getElementById('themeToggleBtn');
-      const themeLabel = document.getElementById('themeLabel');
-
-      function setTheme(theme) {
-        root.setAttribute('data-theme', theme);
-        localStorage.setItem('nothing_theme', theme);
-        if (themeLabel) {
-          themeLabel.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
-        }
+    // 2. Robust Theme Switcher (safe for file:// and http://)
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      document.body.setAttribute('data-theme', theme);
+      const label = document.getElementById('themeLabel');
+      if (label) {
+        label.textContent = (theme === 'dark') ? 'LIGHT' : 'DARK';
       }
+      try {
+        localStorage.setItem('vitalii_theme', theme);
+      } catch (err) {}
+    }
 
-      const savedTheme = localStorage.getItem('nothing_theme') || 'dark';
-      setTheme(savedTheme);
-
-      if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-          const current = root.getAttribute('data-theme') || 'dark';
-          setTheme(current === 'dark' ? 'light' : 'dark');
-        });
+    let initialTheme = 'dark';
+    try {
+      const stored = localStorage.getItem('vitalii_theme');
+      if (stored === 'light' || stored === 'dark') {
+        initialTheme = stored;
       }
+    } catch (err) {}
+    applyTheme(initialTheme);
 
-      // 3. One-Click Copy Email
-      const copyBtn = document.getElementById('copyEmailBtn');
-      const toast = document.getElementById('toastBox');
-      let timer = null;
-
-      if (copyBtn && toast) {
-        copyBtn.addEventListener('click', () => {
-          const email = 'vitaliinewhalo@gmail.com';
-          navigator.clipboard.writeText(email).then(() => {
-            showToast();
-          }).catch(() => {
-            const el = document.createElement('textarea');
-            el.value = email;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            showToast();
-          });
-        });
-      }
-
-      function showToast() {
-        if (!toast) return;
-        toast.classList.add('show');
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2400);
-      }
-    })();
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = (current === 'dark') ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    }
   </script>
 </body>
 </html>
